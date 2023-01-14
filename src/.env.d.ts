@@ -1,11 +1,12 @@
-interface Env {
-	REACT_APP_API_URL: string;
-	REACT_APP_API_KEY: string;
+export interface Env {
+	readonly VITE_APP_API_URL: string;
+	readonly VITE_APP_API_KEY: string;
 }
 
 declare const env: Env;
 
-export default env;
+//vite rendering
+// import.meta.env.VITE_APP_TITLE.
 
 // Now you can access the environment variables in your React + TypeScript application and TypeScript will know the types of the variables.
 // Copy code
