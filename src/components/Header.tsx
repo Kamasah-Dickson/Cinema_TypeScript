@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 function Header() {
 	return (
 		<div className="container">
-			<ul>
-				<li>Home</li>
-				<li>Series</li>
-				<li>Tv show</li>
-			</ul>
+			<nav>
+				<NavLink to="/">Home</NavLink>
+				<NavLink to="/series">Series</NavLink>
+				<NavLink to="/show">Tv show</NavLink>
+			</nav>
 			<NavLink to="/notification">
 				<CustomizeIcons>
 					<IoMdNotificationsOutline />

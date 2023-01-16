@@ -5,6 +5,7 @@ import CustomizeIcons from "./CustomizeIcons";
 import { FaRegCompass } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { AiOutlineCloud } from "react-icons/ai";
+import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import { BiExit } from "react-icons/bi";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
 
@@ -67,6 +68,17 @@ const Aside: React.FC = () => {
 						Exit
 					</NavLink>
 				</nav>
+				<div className="userLogged">
+					<div className="left">
+						<div className="img">
+							<img src={Logo} alt="user image" />
+						</div>
+					</div>
+					<div className="right">
+						<h3>Kamasah Dickson</h3>
+						<span>kamasahdickson19@gmail.com</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
