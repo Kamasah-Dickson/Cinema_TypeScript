@@ -1,7 +1,7 @@
 import React from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import CustomizeIcons from "./CustomizeIcons";
-
+import { NavLink } from "react-router-dom";
 function Header() {
 	return (
 		<div className="container">
@@ -10,9 +10,11 @@ function Header() {
 				<li>Series</li>
 				<li>Tv show</li>
 			</ul>
-			<CustomizeIcons>
-				<IoMdNotificationsOutline />
-			</CustomizeIcons>
+			<NavLink to="/notification">
+				<CustomizeIcons>
+					<IoMdNotificationsOutline />
+				</CustomizeIcons>
+			</NavLink>
 		</div>
 	);
 }

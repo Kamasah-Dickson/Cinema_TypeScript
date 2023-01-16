@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function CustomizeIcons({ children }: Props) {
-	const contextProps = { color: "white", size: "25px" };
+	const contextProps = { color: "#6d6a70", size: "25px" };
 	return (
 		<>
 			<IconContext.Provider value={contextProps}>
