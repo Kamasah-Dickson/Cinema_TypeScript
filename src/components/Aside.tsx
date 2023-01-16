@@ -8,6 +8,7 @@ import { AiOutlineCloud } from "react-icons/ai";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import { BiExit } from "react-icons/bi";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Aside: React.FC = () => {
 	return (
@@ -70,12 +71,16 @@ const Aside: React.FC = () => {
 				</nav>
 				<div className="userLogged">
 					<div className="left">
-						<div className="img">
-							<img src={Logo} alt="user image" />
-						</div>
+						<a href="https://github.com/Kamasah-Dickson">
+							<div className="img">
+								<img src={Logo} alt="user image" />
+							</div>
+						</a>
 					</div>
 					<div className="right">
-						<h3>Kamasah Dickson</h3>
+						<a href="https://github.com/Kamasah-Dickson">
+							<h3>Kamasah Dickson</h3>
+						</a>
 						<span>kamasahdickson19@gmail.com</span>
 					</div>
 				</div>

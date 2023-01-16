@@ -158,12 +158,21 @@ body {
 					bottom: 0;
 					margin-top: auto;
 					margin-bottom: f.rem(30);
+					a {
+						color: var(--white);
+						cursor: pointer;
+					}
 
 					.right {
 						color: var(--white);
-						h3 {
-							font-size: $font-medium;
-							font-weight: 400;
+						a {
+							h3 {
+								font-size: $font-medium;
+								font-weight: 400;
+								color: var(--white);
+							}
+							cursor: pointer;
+							text-decoration: none;
 						}
 						span {
 							font-size: $small-font;
