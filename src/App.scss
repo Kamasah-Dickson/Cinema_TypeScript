@@ -31,19 +31,28 @@ body {
 		"aside header header"
 		"aside main main"
 		"aside main main"
-		"footer footer footer";
+		"aside footer footer";
 	grid-template-columns: f.rem(240) 1fr f.rem(240);
-	grid-template-rows: 50px;
+	// grid-template-rows: 50px;
 	gap: f.rem(20);
 
 	.header {
+		// height: fit-content;
+		height: 100%;
 		grid-area: header;
 		margin-bottom: f.rem(20);
+		position: sticky;
+		top: 0;
+		// background-color: var(--body-color);
+		background-color: hsla(260, 17%, 10%, 0.9);
+		backdrop-filter: saturate(50%) blur(20px);
+		-webkit-backdrop-filter: saturate(50%) blur(8px);
 		.container {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: f.rem(20);
+			padding: f.rem(20) f.rem(20) f.rem(20) f.rem(15);
+			height: 100%;
 			a {
 				cursor: pointer;
 				&:hover {
@@ -216,6 +225,10 @@ body {
 .main {
 	background-color: gray;
 	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 350px 250px 250px auto;
+	// flex-direction: column;
 }
 
 .trending-section,
@@ -224,11 +237,17 @@ body {
 	width: 100%;
 }
 
-.trending-section {
-}
+// .trending-section {
+// 	flex: 5;
+// }
 .top-rated-section {
 	background-color: blue;
+	// flex: 2;
 }
 .continueWatching-section {
 	background-color: purple;
+	// flex: 2;
 }
+// .footer {
+// 	flex: 1;
+// }
