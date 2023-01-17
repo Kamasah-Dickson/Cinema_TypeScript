@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function Trending() {
-	return <div>Trending</div>;
+	return (
+		<div className="trending-section">
+			<h2>Trending movies🔥</h2>
+		</div>
+	);
 }

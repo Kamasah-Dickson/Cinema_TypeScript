@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-	width: min(100% - f.rem(20));
+	width: min(100% - f.rem(20), f.rem(1440));
 	margin-inline: auto;
 	display: grid;
 	grid-template-areas:
@@ -33,6 +33,7 @@ body {
 		"aside main aside2"
 		"footer footer footer";
 	grid-template-columns: f.rem(240) 1fr f.rem(240);
+	grid-template-rows: 50px;
 	gap: f.rem(20);
 
 	.header {
@@ -80,7 +81,7 @@ body {
 			display: flex;
 			flex-direction: column;
 			gap: f.rem(30);
-			padding: f.rem(20) f.rem(35);
+			padding: f.rem(20) f.rem(20);
 			height: 100%;
 			.logo {
 				cursor: pointer;
@@ -208,4 +209,26 @@ body {
 		grid-area: footer;
 		background-color: peru;
 	}
+}
+
+// ============main==============
+
+.main {
+	background-color: gray;
+	height: 100%;
+}
+
+.trending-section,
+.top-rated-section,
+.continueWatching-section {
+	width: 100%;
+}
+
+.trending-section {
+}
+.top-rated-section {
+	background-color: blue;
+}
+.continueWatching-section {
+	background-color: purple;
 }

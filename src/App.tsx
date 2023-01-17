@@ -23,9 +23,6 @@ const App: React.FC = () => {
 					<Trending />
 					<TopRated />
 					<ContinueWatching />
-					<footer>
-						<Footer />
-					</footer>
 				</Main>
 			</main>
 			<aside className="aside2">
