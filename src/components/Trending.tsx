@@ -19,8 +19,6 @@ const moviesUrl = `${url}/discover/movie`;
 const personUrl = `${url}/trending/person/week`;
 const trendingUrl = `${url}/trending/all/day`;
 
-// https://api.themoviedb.org/3/genre/movie/list?api_key=<<api_key>>&language=en-US
-
 export default function Trending(): JSX.Element {
 	const { movies }: any = useFetch(trendingUrl);
 
@@ -35,9 +33,6 @@ export default function Trending(): JSX.Element {
 		);
 	});
 
-	// console.log(movies);
-	// console.log(movies.results.map((data) => data));
-
 	return (
 		<div className="trending-section">
 			<h2>Trending movies🔥</h2>
@@ -50,15 +45,12 @@ export default function Trending(): JSX.Element {
 				breakpoints={{
 					640: {
 						slidesPerView: 2,
-						spaceBetween: 20,
 					},
 					768: {
-						slidesPerView: 4,
-						spaceBetween: 40,
+						slidesPerView: 2,
 					},
 					1024: {
-						slidesPerView: 5,
-						spaceBetween: 50,
+						slidesPerView: 2,
 					},
 				}}
 				loop={true}
