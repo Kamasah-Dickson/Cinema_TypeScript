@@ -6,7 +6,6 @@ import Trending from "./components/Trending";
 import TopRated from "./components/TopRated";
 import ContinueWatching from "./components/ContinueWatching";
 import Aside from "./components/Aside";
-import AsideUpcoming from "./components/AsideUpcoming";
 import Main from "./components/Main";
 
 const App: React.FC = () => {
@@ -25,10 +24,7 @@ const App: React.FC = () => {
 					<ContinueWatching />
 				</Main>
 			</main>
-			<aside className="aside2">
-				<h1>aside 2</h1>
-				<AsideUpcoming />
-			</aside>
+
 			<footer className="footer">
 				<Footer />
 			</footer>

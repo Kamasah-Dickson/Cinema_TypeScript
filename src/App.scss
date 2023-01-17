@@ -29,8 +29,8 @@ body {
 	display: grid;
 	grid-template-areas:
 		"aside header header"
-		"aside main  aside2"
-		"aside main aside2"
+		"aside main main"
+		"aside main main"
 		"footer footer footer";
 	grid-template-columns: f.rem(240) 1fr f.rem(240);
 	grid-template-rows: 50px;
