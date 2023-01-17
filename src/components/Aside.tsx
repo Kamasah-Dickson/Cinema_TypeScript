@@ -14,7 +14,7 @@ const Aside: React.FC = () => {
 	return (
 		<div className="container">
 			<div className="logo">
-				<h1>Cinema</h1>
+				<h1>Cinema🍟</h1>
 			</div>
 			<div className="nav_links">
 				<h2>Menu</h2>
