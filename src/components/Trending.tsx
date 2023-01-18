@@ -1,4 +1,4 @@
-// import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
 
@@ -48,7 +48,13 @@ export default function Trending(): JSX.Element {
 							<span>{data?.original_language}</span>
 						</div>
 						<div className="buttons">
-							<button className="trailer">Trailer</button>
+							<button
+								id="load-video-button"
+								onClick={() => loadVideo(data.id)}
+								className="trailer"
+							>
+								Trailer
+							</button>
 							<button className="watch">Watch movie</button>
 						</div>
 					</div>
@@ -56,6 +62,21 @@ export default function Trending(): JSX.Element {
 			</SwiperSlide>
 		);
 	});
+
+	const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
+
+	async function getVideoIdFromTMDB(movieId: string) {
+		const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
+		const response = await fetch(url);
+		const data = await response.json();
+		return data.results[0].key; //returns the first video id from the results
+	}
+
+	async function loadVideo(id: string) {
+		const videoId = await getVideoIdFromTMDB(id); //get the video id from TMDB API
+		const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+		window.open(videoUrl, "_blank");
+	}
 
 	console.log(movies);
 	return (
