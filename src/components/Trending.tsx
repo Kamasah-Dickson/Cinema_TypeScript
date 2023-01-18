@@ -78,7 +78,7 @@ export default function Trending(): JSX.Element {
 		const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 		window.open(videoUrl, "_blank");
 	}
-	console.log(movies);
+	// console.log(movies);
 	return (
 		<>
 			<div className="trending-section">
@@ -90,7 +90,7 @@ export default function Trending(): JSX.Element {
 					<Swiper
 						centeredSlides={true}
 						autoplay={{
-							delay: 4500,
+							delay: 2500,
 							disableOnInteraction: false,
 						}}
 						breakpoints={{
@@ -105,7 +105,7 @@ export default function Trending(): JSX.Element {
 							},
 						}}
 						loop={true}
-						spaceBetween={20}
+						spaceBetween={25}
 						slidesPerView={2}
 						onSwiper={(swiper) => console.log(swiper)}
 						modules={[Navigation, A11y, Autoplay]}
