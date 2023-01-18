@@ -84,7 +84,7 @@ export default function Trending(): JSX.Element {
 					loop={true}
 					spaceBetween={20}
 					slidesPerView={2}
-					// onSwiper={(swiper) => console.log(swiper)}
+					onSwiper={(swiper) => console.log(swiper)}
 					modules={[Navigation, A11y, Autoplay]}
 					navigation
 					scrollbar={{ draggable: true }}
