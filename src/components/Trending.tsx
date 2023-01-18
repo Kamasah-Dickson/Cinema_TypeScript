@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
+import ReactPlayer from "react-player";
 
 import "swiper/css";
 import "swiper/css";
@@ -21,7 +22,7 @@ const personUrl = `${url}/trending/person/week`;
 const trendingUrl = `${url}/trending/all/day`;
 
 export default function Trending(): JSX.Element {
-	const { movies, pending }: any = useFetch(nowPlaying);
+	const { movies, pending }: any = useFetch(trendingUrl);
 
 	const result = movies?.results?.map((data: any) => {
 		return (
@@ -77,44 +78,46 @@ export default function Trending(): JSX.Element {
 		const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 		window.open(videoUrl, "_blank");
 	}
-
 	console.log(movies);
 	return (
-		<div className="trending-section">
-			<h2>Trending movies🔥</h2>
-			{pending ? (
-				<LoaderExampleLoader />
-			) : (
-				<Swiper
-					centeredSlides={true}
-					autoplay={{
-						delay: 4500,
-						disableOnInteraction: false,
-					}}
-					breakpoints={{
-						640: {
-							slidesPerView: 2,
-						},
-						768: {
-							slidesPerView: 2,
-						},
-						1024: {
-							slidesPerView: 2,
-						},
-					}}
-					loop={true}
-					spaceBetween={20}
-					slidesPerView={2}
-					onSwiper={(swiper) => console.log(swiper)}
-					modules={[Navigation, A11y, Autoplay]}
-					navigation
-					scrollbar={{ draggable: true }}
-					// onSlideChange={() => console.log("slide change")}
-					className="swiper-container"
-				>
-					{result}
-				</Swiper>
-			)}
-		</div>
+		<>
+			<div className="trending-section">
+				<h2>Trending movies🔥</h2>
+
+				{pending ? (
+					<LoaderExampleLoader />
+				) : (
+					<Swiper
+						centeredSlides={true}
+						autoplay={{
+							delay: 4500,
+							disableOnInteraction: false,
+						}}
+						breakpoints={{
+							640: {
+								slidesPerView: 2,
+							},
+							768: {
+								slidesPerView: 2,
+							},
+							1024: {
+								slidesPerView: 2,
+							},
+						}}
+						loop={true}
+						spaceBetween={20}
+						slidesPerView={2}
+						onSwiper={(swiper) => console.log(swiper)}
+						modules={[Navigation, A11y, Autoplay]}
+						navigation
+						scrollbar={{ draggable: true }}
+						// onSlideChange={() => console.log("slide change")}
+						className="swiper-container"
+					>
+						{result}
+					</Swiper>
+				)}
+			</div>
+		</>
 	);
 }
