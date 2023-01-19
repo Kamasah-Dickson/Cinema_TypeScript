@@ -22,6 +22,20 @@ p {
 $small-font: f.rem(12);
 $font-medium: f.rem(15);
 
+$breakpoints: (
+	v-small: f.rem(450),
+	small-m: f.rem(650),
+	small: f.rem(550),
+	medium: f.rem(760),
+	medium-m: f.rem(850),
+);
+
+@mixin breakpoint-max($size) {
+	@media (max-width: map-get($breakpoints,$size)) {
+		@content;
+	}
+}
+
 body {
 	min-height: 100vh;
 	background-color: var(--body-color);
@@ -37,6 +51,12 @@ body {
 		"aside main main"
 		"aside footer footer";
 	grid-template-columns: f.rem(240) 1fr f.rem(240);
+	@include breakpoint-max(medium) {
+		grid-template-columns: f.rem(180) 1fr f.rem(240);
+	}
+	@include breakpoint-max(small-m) {
+		grid-template-columns: f.rem(80) 1fr f.rem(240);
+	}
 
 	.header {
 		height: 100%;
@@ -84,9 +104,9 @@ body {
 		position: sticky;
 		top: f.rem(0);
 		left: 0;
-		width: f.rem(240);
 		height: 100vh;
 		box-shadow: 1rem 0 1rem -1rem rgba(0, 0, 0, 0.3);
+
 		.container {
 			width: 100%;
 			display: flex;
@@ -96,6 +116,9 @@ body {
 			height: 100%;
 			.logo {
 				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
 				h1 {
 					font-weight: 600;
 					color: var(--white);
@@ -142,6 +165,10 @@ body {
 						}
 						svg {
 							margin-left: f.rem(10);
+							svg {
+								width: f.rem(25);
+								height: f.rem(25);
+							}
 						}
 						&:hover {
 							color: var(--white);
@@ -161,7 +188,7 @@ body {
 				.userLogged {
 					display: flex;
 					align-items: center;
-					justify-content: center;
+					justify-content: flex-start;
 					max-width: f.rem(200);
 					width: 100%;
 					gap: f.rem(11);
@@ -207,11 +234,47 @@ body {
 				}
 			}
 		}
+		@include breakpoint-max(small-m) {
+			.container {
+				.logo {
+					h1 {
+						display: none;
+					}
+				}
+				.nav_links {
+					nav {
+						a {
+							p {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+		@include breakpoint-max(medium) {
+			.container {
+				.nav_links {
+					nav {
+						a {
+							svg {
+								width: f.rem(20);
+								height: f.rem(20);
+							}
+						}
+					}
+				}
+
+				.userLogged {
+					display: none;
+					.right {
+						display: none;
+					}
+				}
+			}
+		}
 	}
-	.aside2 {
-		grid-area: aside2;
-		background-color: rgba(103, 43, 143, 0.671);
-	}
+
 	.main {
 		grid-area: main;
 	}
@@ -258,9 +321,9 @@ body {
 		.swiper-card {
 			display: grid;
 			overflow: hidden;
+			width: 100%;
 			max-width: f.rem(550);
 			margin-inline: auto;
-			width: 100%;
 			border-radius: f.rem(25);
 			height: fit-content;
 			position: relative;
@@ -300,6 +363,9 @@ body {
 							height: 100%;
 							object-fit: cover;
 						}
+						@include breakpoint-max(small) {
+							width: f.rem(100);
+						}
 					}
 				}
 				.right {
@@ -309,6 +375,13 @@ body {
 					h3 {
 						margin-bottom: f.rem(10);
 						font-size: f.rem(25);
+						@include breakpoint-max(small) {
+							display: none;
+						}
+						@include breakpoint-max(v-small) {
+							display: grid;
+							font-size: f.rem(20);
+						}
 					}
 					span {
 						font-weight: 600;
@@ -318,6 +391,9 @@ body {
 						font-weight: 300;
 						font-size: f.rem(13);
 						line-height: 1.4;
+						@include breakpoint-max(v-small) {
+							display: none;
+						}
 					}
 					.attr {
 						margin-top: f.rem(7);
@@ -332,13 +408,22 @@ body {
 							border-radius: f.rem(3);
 							// width: fit-content;
 						}
+						@include breakpoint-max(small) {
+							display: none;
+						}
 					}
 					.buttons {
 						margin-top: f.rem(20);
-						display: grid;
-						grid-template-columns: 1fr 1fr;
+						display: flex;
+						align-items: center;
+						justify-content: flex-start;
 						gap: f.rem(20);
-						place-content: center;
+						width: 100%;
+						@include breakpoint-max(small) {
+							flex-direction: column;
+							gap: f.rem(10);
+							align-items: flex-start;
+						}
 						button {
 							cursor: pointer;
 							padding: f.rem(12);
@@ -359,9 +444,15 @@ body {
 						}
 						.watch {
 							background-color: var(--blue);
+							@include breakpoint-max(v-small) {
+								font-size: f.rem(12);
+							}
 						}
 						.trailer {
 							background-color: rgba(255, 255, 255, 0.411);
+							@include breakpoint-max(v-small) {
+								display: none;
+							}
 						}
 					}
 				}

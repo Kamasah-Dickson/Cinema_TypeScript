@@ -43,7 +43,7 @@ export default function Trending(): JSX.Element {
 					<div className="right">
 						<h3>{data?.original_name}</h3>
 						<span>{data?.first_air_date}</span>
-						<p>{data.overview.substring(0, 250) + "..."}</p>
+						<p>{data.overview.substring(0, 170) + "..."}</p>
 						<div className="attr">
 							<span>{data?.media_type}</span>
 							<span>{data?.original_language}</span>
@@ -78,7 +78,7 @@ export default function Trending(): JSX.Element {
 		const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 		window.open(videoUrl, "_blank");
 	}
-	// console.log(movies);
+
 	return (
 		<>
 			<div className="trending-section">
@@ -94,20 +94,16 @@ export default function Trending(): JSX.Element {
 							disableOnInteraction: false,
 						}}
 						breakpoints={{
-							640: {
-								slidesPerView: 2,
+							900: {
+								slidesPerView: 1,
 							},
-							768: {
-								slidesPerView: 2,
-							},
-							1024: {
+							1200: {
 								slidesPerView: 2,
 							},
 						}}
 						loop={true}
 						spaceBetween={25}
-						slidesPerView={2}
-						onSwiper={(swiper) => console.log(swiper)}
+						// onSwiper={(swiper) => console.log(swiper)}
 						modules={[Navigation, A11y, Autoplay]}
 						navigation
 						scrollbar={{ draggable: true }}

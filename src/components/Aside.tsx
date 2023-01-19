@@ -14,7 +14,8 @@ const Aside: React.FC = () => {
 	return (
 		<div className="container">
 			<div className="logo">
-				<h1>Cinema🍟</h1>
+				<h1>Cinema</h1>
+				<h2>🍟</h2>
 			</div>
 			<div className="nav_links">
 				<h2>Menu</h2>
@@ -23,28 +24,28 @@ const Aside: React.FC = () => {
 						<CustomizeIcons>
 							<BiHomeCircle size="20" />
 						</CustomizeIcons>
-						Home
+						<p>Home</p>
 					</NavLink>
 
 					<NavLink to="/discovery">
 						<CustomizeIcons>
 							<FaRegCompass size="20" />
 						</CustomizeIcons>
-						Discovery
+						<p>Discovery</p>
 					</NavLink>
 
 					<NavLink to="/community">
 						<CustomizeIcons>
 							<IoIosPeople size="20" />
 						</CustomizeIcons>
-						Community
+						<p>Community</p>
 					</NavLink>
 
 					<NavLink to="/search">
 						<CustomizeIcons>
 							<BiSearch size="20" />
 						</CustomizeIcons>
-						Search
+						<p>Search</p>
 					</NavLink>
 				</nav>
 				<nav>
@@ -52,21 +53,21 @@ const Aside: React.FC = () => {
 						<CustomizeIcons>
 							<MdOutlineSettingsSuggest size="20" />
 						</CustomizeIcons>
-						Settings
+						<p>Settings</p>
 					</NavLink>
 
 					<NavLink to="/help">
 						<CustomizeIcons>
 							<AiOutlineCloud size="20" />
 						</CustomizeIcons>
-						Help
+						<p>Help</p>
 					</NavLink>
 
 					<NavLink to="/exit">
 						<CustomizeIcons>
 							<BiExit size="20" />
 						</CustomizeIcons>
-						Exit
+						<p>Exit</p>
 					</NavLink>
 				</nav>
 				<div className="userLogged">
