@@ -9,6 +9,7 @@ import "swiper/css/scrollbar";
 
 // import StarRatings from "react-star-ratings";
 import useFetch from "../useFetch";
+import PlayMovie from "./PlayMovie";
 
 const url = "https://api.themoviedb.org/3";
 const nowPlaying = `${url}/movie/now_playing`;
@@ -21,6 +22,9 @@ const trendingUrl = `${url}/trending/all/day`;
 
 export default function Trending(): JSX.Element {
 	const { movies, pending, error }: any = useFetch(trendingUrl);
+	const [movieError, setMovieError] = useState<string>("");
+	const [movieUrl, setMovieUrl] = useState<string>("");
+	const [show, setShow] = useState<boolean>(false);
 
 	const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
 
@@ -28,13 +32,22 @@ export default function Trending(): JSX.Element {
 		const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
 		const response = await fetch(url);
 		const data = await response.json();
-		return data.results[0].key; //returns the first video id from the results
+		return data?.results[0]?.key; //returns the first video id from the results
 	}
 
 	async function loadVideo(id: string) {
-		const videoId = await getVideoIdFromTMDB(id); //get the video id from TMDB API
-		const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-		window.open(videoUrl, "_blank");
+		try {
+			const videoId = await getVideoIdFromTMDB(id); //get the video id from TMDB API
+			const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+			// window.open(videoUrl, "_blank");
+			setMovieUrl(videoUrl);
+			setMovieError("");
+			setShow(true);
+		} catch (error: any) {
+			setMovieError(error.message);
+			setShow(false);
+			console.log(error);
+		}
 	}
 
 	const result = movies?.results?.map((data: any) => {
@@ -49,7 +62,7 @@ export default function Trending(): JSX.Element {
 						<div className="img">
 							<img
 								src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
-								alt=""
+								alt={data?.original_name}
 							/>
 						</div>
 					</div>
@@ -64,7 +77,7 @@ export default function Trending(): JSX.Element {
 						<div className="buttons">
 							<button
 								id="load-video-button"
-								onClick={() => loadVideo(data.id)}
+								onClick={() => (loadVideo(data.id), setShow(true))}
 								className="trailer"
 							>
 								Trailer
@@ -79,6 +92,12 @@ export default function Trending(): JSX.Element {
 
 	return (
 		<>
+			<PlayMovie
+				show={show}
+				setShow={setShow}
+				movie={movieUrl}
+				movieError={movieError}
+			/>
 			<div className="trending-section">
 				<h2>Trending movies🔥</h2>
 				{pending && (
