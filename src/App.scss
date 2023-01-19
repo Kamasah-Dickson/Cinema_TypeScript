@@ -50,12 +50,12 @@ body {
 		"aside main main"
 		"aside main main"
 		"aside footer footer";
-	grid-template-columns: f.rem(240) 1fr f.rem(240);
+	grid-template-columns: f.rem(240) auto f.rem(240);
 	@include breakpoint-max(medium) {
-		grid-template-columns: f.rem(180) 1fr f.rem(240);
+		grid-template-columns: f.rem(180) auto f.rem(240);
 	}
 	@include breakpoint-max(small-m) {
-		grid-template-columns: f.rem(80) 1fr f.rem(240);
+		grid-template-columns: f.rem(80) auto f.rem(240); //changed this
 	}
 
 	.header {
@@ -291,7 +291,8 @@ body {
 	display: grid;
 	gap: f.rem(20);
 	grid-template-columns: 1fr;
-	grid-template-rows: repeat(3, 1fr) auto;
+	// grid-template-rows: repeat(3, 1fr) auto;
+	grid-template-rows: repeat(3, auto) 400px;
 	user-select: none;
 }
 
@@ -309,11 +310,25 @@ body {
 }
 
 .trending-section {
+	position: relative;
 	h2 {
 		margin-bottom: f.rem(20);
 		color: var(--white);
 		font-weight: 400;
 		margin-left: f.rem(23);
+	}
+	.error {
+		color: rgba(255, 0, 0, 0.89);
+		font-weight: 500;
+		font-size: f.rem(25);
+		text-align: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: grid;
+		place-content: center;
 	}
 	overflow: hidden;
 	.swiper-container {
@@ -426,7 +441,7 @@ body {
 						}
 						button {
 							cursor: pointer;
-							padding: f.rem(12);
+							padding: f.rem(9);
 							color: var(--white);
 							border-radius: f.rem(10);
 							border: none;

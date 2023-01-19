@@ -21,7 +21,7 @@ const useFetch = (yourData) => {
 				setMovies(data);
 				setPending(false);
 			} catch (error) {
-				setPending(true);
+				setPending(false);
 				console.log(error.message);
 				setError(error.message);
 			}
