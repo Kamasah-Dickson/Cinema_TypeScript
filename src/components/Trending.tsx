@@ -23,7 +23,7 @@ const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
 
 export default function Trending(): JSX.Element {
 	const { movies, pending, error }: any = useFetch(trendingUrl);
-	const [movieUrl, setMovieUrl] = useState<string>("");
+	const [movieUrl, setMovieUrl] = useState<any>([]);
 	const [show, setShow] = useState<boolean>(false);
 	const [movieError, setMovieError] = useState<string>("");
 
@@ -46,7 +46,16 @@ export default function Trending(): JSX.Element {
 				}
 			} else {
 				const data = await response.json();
-				return data?.results[0]?.key; //returns the first video id from the results
+
+				const movieLink = data?.results?.map(
+					(data: string[] | any) =>
+						`https://www.youtube.com/watch?v=${data.key}`
+				);
+				console.log(movieLink);
+				setMovieUrl(movieLink);
+
+				//returns the first video id from the results
+				// return data?.results[0]?.key; //returns the first video id from the results
 			}
 		} catch (error: any) {
 			setMovieError(error?.message);
@@ -54,18 +63,19 @@ export default function Trending(): JSX.Element {
 		}
 	}
 
-	async function loadVideo(id: string) {
-		try {
-			const videoId = await getVideoIdFromTMDB(id); //get the video id from TMDB API
-			const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-			// window.open(videoUrl, "_blank");
-			setMovieUrl(videoUrl);
-			setShow(true);
-		} catch (error: any) {
-			setMovieError(error.message);
-			setShow(false);
-		}
-	}
+	// async function loadVideo(id: string) {
+	// 	try {
+	// 		const videoId = await getVideoIdFromTMDB(id); //get the video id from TMDB API
+	// 		const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+	// 		// window.open(videoUrl, "_blank");
+	// 		// setMovieUrl(videoUrl);
+
+	// 		setShow(true);
+	// 	} catch (error: any) {
+	// 		setMovieError(error.message);
+	// 		setShow(false);
+	// 	}
+	// }
 
 	const result = movies?.results?.map((data: any) => {
 		return (
@@ -94,7 +104,7 @@ export default function Trending(): JSX.Element {
 						<div className="buttons">
 							<button
 								id="load-video-button"
-								onClick={() => (loadVideo(data.id), setShow(true))}
+								onClick={() => (getVideoIdFromTMDB(data.id), setShow(true))}
 								className="trailer"
 							>
 								Trailer

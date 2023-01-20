@@ -477,7 +477,8 @@ body {
 }
 
 .overlay {
-	position: fixed;
+	// position: sticky;
+	position: absolute;
 	top: 0;
 	left: 0;
 	height: 100vh;
@@ -486,11 +487,9 @@ body {
 	font-size: 8rem;
 	z-index: 100;
 	background-color: #020005bb;
-	display: grid;
-	place-content: center;
 	.trailer {
-		height: 100%;
-		user-select: text;
+		// user-select: all;
+		// max-width: f.rem(400);
 		.close {
 			display: flex;
 			align-items: center;
@@ -498,4 +497,8 @@ body {
 			margin-bottom: f.rem(20);
 		}
 	}
+}
+
+.swiper-container2 {
+	z-index: 120;
 }
