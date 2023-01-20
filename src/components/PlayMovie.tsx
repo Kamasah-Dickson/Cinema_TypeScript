@@ -4,12 +4,15 @@ import { CircleLoader } from "react-spinners";
 import { useState } from "react";
 import React from "react";
 
-function PlayMovie({ show, setShow, movie, movieError }: any) {
+function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 	console.log(movieError);
 	return (
 		<>
 			{show && (
-				<div className="overlay" onClick={() => setShow(false)}>
+				<div
+					className="overlay"
+					onClick={() => (setShow(false), setMovieError(""))}
+				>
 					<div className="trailer">
 						{!movieError && (
 							<SlClose

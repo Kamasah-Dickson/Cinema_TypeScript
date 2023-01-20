@@ -23,9 +23,9 @@ const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
 
 export default function Trending(): JSX.Element {
 	const { movies, pending, error }: any = useFetch(trendingUrl);
-	const [movieError, setMovieError] = useState<string>("");
 	const [movieUrl, setMovieUrl] = useState<string>("");
 	const [show, setShow] = useState<boolean>(false);
+	const [movieError, setMovieError] = useState<string>("");
 
 	async function getVideoIdFromTMDB(movieId: string) {
 		try {
@@ -114,6 +114,7 @@ export default function Trending(): JSX.Element {
 				setShow={setShow}
 				movie={movieUrl}
 				movieError={movieError}
+				setMovieError={setMovieError}
 			/>
 			<div className="trending-section">
 				<h2>Trending movies🔥</h2>
