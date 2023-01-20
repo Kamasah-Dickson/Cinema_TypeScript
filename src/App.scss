@@ -478,7 +478,7 @@ body {
 
 .overlay {
 	// position: sticky;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	height: 100vh;
@@ -486,7 +486,7 @@ body {
 	color: white;
 	font-size: 8rem;
 	z-index: 100;
-	background-color: #020005bb;
+	background-color: #020005da;
 	.trailer {
 		// user-select: all;
 		// max-width: f.rem(400);
@@ -499,6 +499,6 @@ body {
 	}
 }
 
-.swiper-container2 {
-	z-index: 120;
+.slider {
+	width: 100%;
 }

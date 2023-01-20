@@ -11,11 +11,6 @@ import "swiper/css/scrollbar";
 
 function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 	const [finalMovies, setfinalMovies] = useState([]);
-	const [showEvent, setPointEvent] = useState<string>("none");
-
-	const styles = {
-		PointerEvent: "showEvent",
-	};
 
 	useEffect(() => {
 		if (movie.length > 0) {
@@ -66,16 +61,16 @@ function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 								slidesPerView: 2,
 							},
 						}}
-						spaceBetween={20}
-						modules={[Navigation, A11y, Autoplay]}
 						navigation
+						spaceBetween={30}
+						modules={[Navigation, A11y, Autoplay]}
 						scrollbar={{ draggable: true }}
 						className="swiper-container2"
 					>
 						{!movieError &&
 							finalMovies.map((data) => (
 								<SwiperSlide className="slider">
-									<ReactPlayer url={data} style={{ pointerEvents: "none" }} />
+									<ReactPlayer url={data} width={"100%"} />
 								</SwiperSlide>
 							))}
 					</Swiper>
