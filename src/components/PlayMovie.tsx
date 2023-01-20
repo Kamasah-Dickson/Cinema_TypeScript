@@ -21,11 +21,22 @@ function PlayMovie({ show, setShow, movie, movieError }: any) {
 							/>
 						)}
 						{movieError && (
-							<p style={{ fontSize: "40px", color: "red" }}>
-								Check your network and try again
-							</p>
+							<>
+								<p style={{ fontSize: "40px", color: "red" }}>
+									Check your network and try again
+								</p>
+								<p
+									style={{
+										fontSize: "25px",
+										textAlign: "center",
+										color: "red",
+									}}
+								>
+									{movieError}
+								</p>
+							</>
 						)}
-						<ReactPlayer url={movie} color="white" />
+						{!movieError && <ReactPlayer url={movie} color="white" />}
 					</div>
 				</div>
 			)}

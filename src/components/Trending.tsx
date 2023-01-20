@@ -30,7 +30,14 @@ export default function Trending(): JSX.Element {
 	async function getVideoIdFromTMDB(movieId: string) {
 		try {
 			const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
-			const response = await fetch(url);
+			const response = await fetch(url, {
+				method: "GET",
+				mode: "cors",
+				headers: {
+					"Content-Type": "applicaton/json",
+					Authorization: `Bearer ${API_KEY}`,
+				},
+			});
 			if (!response.ok) {
 				if (response.status === 404) {
 					throw new Error("Movie not found.");
@@ -44,7 +51,6 @@ export default function Trending(): JSX.Element {
 		} catch (error: any) {
 			setMovieError(error?.message);
 			setShow(false);
-			setMovieError(error?.message);
 		}
 	}
 
@@ -54,12 +60,10 @@ export default function Trending(): JSX.Element {
 			const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 			// window.open(videoUrl, "_blank");
 			setMovieUrl(videoUrl);
-			setMovieError("");
 			setShow(true);
 		} catch (error: any) {
-			setShow(false);
 			setMovieError(error.message);
-			console.log(error);
+			setShow(false);
 		}
 	}
 
