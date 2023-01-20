@@ -19,6 +19,7 @@ const genUrl = `${url}/genre/movie/list`;
 const moviesUrl = `${url}/discover/movie`;
 const personUrl = `${url}/trending/person/week`;
 const trendingUrl = `${url}/trending/all/day`;
+const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
 
 export default function Trending(): JSX.Element {
 	const { movies, pending, error }: any = useFetch(trendingUrl);
@@ -26,13 +27,25 @@ export default function Trending(): JSX.Element {
 	const [movieUrl, setMovieUrl] = useState<string>("");
 	const [show, setShow] = useState<boolean>(false);
 
-	const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
-
 	async function getVideoIdFromTMDB(movieId: string) {
-		const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
-		const response = await fetch(url);
-		const data = await response.json();
-		return data?.results[0]?.key; //returns the first video id from the results
+		try {
+			const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
+			const response = await fetch(url);
+			if (!response.ok) {
+				if (response.status === 404) {
+					throw new Error("Movie not found.");
+				} else {
+					throw new Error("An error occurred while fetching the movie.");
+				}
+			} else {
+				const data = await response.json();
+				return data?.results[0]?.key; //returns the first video id from the results
+			}
+		} catch (error: any) {
+			setMovieError(error?.message);
+			setShow(false);
+			setMovieError(error?.message);
+		}
 	}
 
 	async function loadVideo(id: string) {
@@ -44,8 +57,8 @@ export default function Trending(): JSX.Element {
 			setMovieError("");
 			setShow(true);
 		} catch (error: any) {
-			setMovieError(error.message);
 			setShow(false);
+			setMovieError(error.message);
 			console.log(error);
 		}
 	}

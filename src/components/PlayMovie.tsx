@@ -5,9 +5,7 @@ import { useState } from "react";
 import React from "react";
 
 function PlayMovie({ show, setShow, movie, movieError }: any) {
-	{
-		console.log(movie);
-	}
+	console.log(movieError);
 	return (
 		<>
 			{show && (
