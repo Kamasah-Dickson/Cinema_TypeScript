@@ -20,7 +20,9 @@ function Header() {
 				</NavLink>
 				<HiMenuAlt3 color="white" size={25} />
 			</div>
-			<Sidebar />
+			<div className="menu">
+				<Sidebar />
+			</div>
 		</>
 	);
 }

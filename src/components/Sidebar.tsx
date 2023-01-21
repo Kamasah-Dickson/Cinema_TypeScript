@@ -5,6 +5,7 @@ import CustomizeIcons from "./CustomizeIcons";
 import { FaRegCompass } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { AiOutlineCloud } from "react-icons/ai";
+import { MdOutlineClose } from "react-icons/md";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import { BiExit } from "react-icons/bi";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
@@ -12,6 +13,7 @@ import { MdOutlineSettingsSuggest } from "react-icons/md";
 function Sidebar() {
 	return (
 		<div className="sidebar">
+			<MdOutlineClose />
 			<div className="container">
 				<div className="logo">
 					<h1>Cinema</h1>
