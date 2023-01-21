@@ -10,11 +10,9 @@ import { MdOutlineSettingsSuggest } from "react-icons/md";
 import { BiExit } from "react-icons/bi";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import StateContext from "../StateContext";
-import { ContextProvider } from "../StateContext";
+import { contextInterface } from "../interface";
 
 function Sidebar() {
-	const { open } = useContext(ContextProvider);
-	// console.log(open);
 	return (
 		<StateContext>
 			<div className="sidebar">

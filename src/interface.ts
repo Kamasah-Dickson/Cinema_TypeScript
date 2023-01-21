@@ -5,3 +5,9 @@ export default interface movieInterface {
 	error: string | null;
 	message: string | null;
 }
+
+export interface contextInterface {
+	open: boolean;
+	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+	onClick: () => void;
+}

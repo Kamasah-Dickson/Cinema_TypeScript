@@ -511,6 +511,10 @@ body {
 	display: none;
 }
 
+.show {
+	transform: translateX(0);
+}
+
 @include breakpoint-max(medium) {
 	.sidebar {
 		position: fixed;
@@ -523,6 +527,7 @@ body {
 		backdrop-filter: saturate(50%) blur(20px);
 		-webkit-backdrop-filter: saturate(50%) blur(8px);
 		display: block;
+		transform: translateX(100%);
 		.container {
 			width: 100%;
 			display: flex;

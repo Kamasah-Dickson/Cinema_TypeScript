@@ -1,20 +1,17 @@
 import React, { createContext, useState } from "react";
 import { contextInterface } from "./interface";
 
-// export const ContextProvider = createContext<contextInterface | null>(null);
-export const ContextProvider = createContext<contextInterface>({
-	open: false,
-	setOpen: () => {},
-});
+export const StateContext = createContext<contextInterface | null>(null);
 
-function StateContext({ children }: React.PropsWithChildren<{}>) {
+function ContextProvider({ children }: React.PropsWithChildren<{}>) {
 	const [open, setOpen] = useState<boolean>(false);
+	const onClick = () => setOpen(false);
 
 	return (
-		<ContextProvider.Provider value={{ open, setOpen }}>
+		<StateContext.Provider value={{ setOpen, open, onClick }}>
 			{children}
-		</ContextProvider.Provider>
+		</StateContext.Provider>
 	);
 }
 
-export default StateContext;
+export default ContextProvider;

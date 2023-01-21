@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import CustomizeIcons from "./CustomizeIcons";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import Sidebar from "./Sidebar";
+
 function Header() {
 	return (
 		<>
@@ -18,7 +19,9 @@ function Header() {
 						<IoMdNotificationsOutline />
 					</CustomizeIcons>
 				</NavLink>
-				<HiMenuAlt3 color="white" size={25} />
+				<div className="menu">
+					<HiMenuAlt3 color="white" size={25} />
+				</div>
 			</div>
 			<div className="menu">
 				<Sidebar />
