@@ -513,7 +513,6 @@ body {
 
 @include breakpoint-max(medium) {
 	.sidebar {
-		width: f.rem(200);
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -523,18 +522,26 @@ body {
 		background-color: var(--filter);
 		backdrop-filter: saturate(50%) blur(20px);
 		-webkit-backdrop-filter: saturate(50%) blur(8px);
+		display: block;
 		.container {
 			width: 100%;
 			display: flex;
 			flex-direction: column;
-			gap: f.rem(30);
+			justify-content: flex-start !important;
+			gap: f.rem(0);
 			padding: f.rem(20) f.rem(10);
 			height: 100%;
+			.close {
+				width: 100%;
+				display: flex;
+				justify-content: flex-end;
+				margin-top: f.rem(30);
+			}
 			.logo {
 				cursor: pointer;
 				display: flex;
 				align-items: center;
-				justify-content: flex-start;
+				// justify-content: flex-start;
 				h1 {
 					font-weight: 600;
 					color: var(--white);
@@ -544,8 +551,9 @@ body {
 				margin-top: f.rem(30);
 				display: flex;
 				flex-direction: column;
-				height: f.rem(600);
-				gap: f.rem(30);
+				// align-items: flex-start;
+				height: auto;
+				gap: f.rem(35);
 				.first-nav {
 					position: relative;
 					&::before {
@@ -568,6 +576,7 @@ body {
 				nav {
 					display: flex;
 					flex-direction: column;
+					align-items: flex-start;
 					gap: f.rem(10);
 					a {
 						display: flex;
