@@ -8,7 +8,6 @@ import { AiOutlineCloud } from "react-icons/ai";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import { BiExit } from "react-icons/bi";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Aside: React.FC = () => {
 	return (

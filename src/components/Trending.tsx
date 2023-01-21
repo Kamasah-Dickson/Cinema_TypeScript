@@ -52,29 +52,12 @@ export default function Trending(): JSX.Element {
 						`https://www.youtube.com/watch?v=${data.key}`
 				);
 				setMovieUrl(movieLink);
-
-				//returns the first video id from the results
-				// return data?.results[0]?.key; //returns the first video id from the results
 			}
 		} catch (error: any) {
 			setMovieError(error?.message);
 			setShow(false);
 		}
 	}
-
-	// async function loadVideo(id: string) {
-	// 	try {
-	// 		const videoId = await getVideoIdFromTMDB(id); //get the video id from TMDB API
-	// 		const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-	// 		// window.open(videoUrl, "_blank");
-	// 		// setMovieUrl(videoUrl);
-
-	// 		setShow(true);
-	// 	} catch (error: any) {
-	// 		setMovieError(error.message);
-	// 		setShow(false);
-	// 	}
-	// }
 
 	const result = movies?.results?.map((data: any) => {
 		return (
