@@ -477,7 +477,6 @@ body {
 }
 
 .overlay {
-	// position: sticky;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -487,14 +486,18 @@ body {
 	font-size: 8rem;
 	z-index: 100;
 	background-color: #020005da;
-	.trailer {
-		// user-select: all;
-		// max-width: f.rem(400);
+	.close {
+		display: inline-block;
+		align-items: center;
+		width: 100%;
+		margin-bottom: f.rem(20);
+		transform: translateY(-150px);
+		justify-content: flex-end;
+	}
+	&:hover {
 		.close {
-			display: flex;
-			align-items: center;
-			margin-left: auto;
-			margin-bottom: f.rem(20);
+			transform: translate(0);
+			transition: transform 0.3s ease;
 		}
 	}
 }

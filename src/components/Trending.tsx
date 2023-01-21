@@ -130,7 +130,7 @@ export default function Trending(): JSX.Element {
 				<h2>Trending movies🔥</h2>
 				{pending && (
 					<p style={{ color: "white", fontSize: "25px", marginLeft: "30px" }}>
-						Loading..
+						Loading...
 					</p>
 				)}
 				{error && <p className="error">{error}</p>}

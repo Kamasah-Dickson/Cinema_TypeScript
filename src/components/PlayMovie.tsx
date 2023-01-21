@@ -1,4 +1,4 @@
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/youtube";
 import { SlClose } from "react-icons/sl";
 import React, { useEffect, useState } from "react";
 
@@ -70,7 +70,12 @@ function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 						{!movieError &&
 							finalMovies.map((data) => (
 								<SwiperSlide className="slider">
-									<ReactPlayer url={data} width={"100%"} />
+									<ReactPlayer
+										light="true"
+										controls
+										url={data}
+										width={"100%"}
+									/>
 								</SwiperSlide>
 							))}
 					</Swiper>
