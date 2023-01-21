@@ -68,8 +68,8 @@ function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 						className="swiper-container2"
 					>
 						{!movieError &&
-							finalMovies.map((data) => (
-								<SwiperSlide className="slider">
+							finalMovies.map((data, index) => (
+								<SwiperSlide key={index} className="slider">
 									<ReactPlayer
 										light="true"
 										controls

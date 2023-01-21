@@ -51,7 +51,6 @@ export default function Trending(): JSX.Element {
 					(data: string[] | any) =>
 						`https://www.youtube.com/watch?v=${data.key}`
 				);
-				console.log(movieLink);
 				setMovieUrl(movieLink);
 
 				//returns the first video id from the results
@@ -151,11 +150,9 @@ export default function Trending(): JSX.Element {
 					}}
 					loop={true}
 					spaceBetween={25}
-					// onSwiper={(swiper) => console.log(swiper)}
 					modules={[Navigation, A11y, Autoplay]}
 					navigation
 					scrollbar={{ draggable: true }}
-					// onSlideChange={() => console.log("slide change")}
 					className="swiper-container"
 				>
 					{result}
