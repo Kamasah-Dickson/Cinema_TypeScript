@@ -512,10 +512,6 @@ body {
 	display: none;
 }
 
-.show {
-	transform: translateX(0);
-}
-
 @include breakpoint-max(medium) {
 	.sidebar {
 		position: fixed;
@@ -668,5 +664,9 @@ body {
 				}
 			}
 		}
+	}
+
+	.show {
+		transform: translateX(0);
 	}
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { BiHomeCircle, BiSearch } from "react-icons/bi";
 import CustomizeIcons from "./CustomizeIcons";
@@ -10,11 +10,9 @@ import { MdOutlineSettingsSuggest } from "react-icons/md";
 import { BiExit } from "react-icons/bi";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import StateContext, { contextProvider } from "../StateContext";
-import { toggleInterface } from "../StateContext";
 
 function Sidebar() {
 	const { open, setOpen } = useContext(contextProvider);
-	console.log(open);
 	return (
 		<StateContext>
 			<div className={`sidebar ${open && "show"}`}>
@@ -23,7 +21,7 @@ function Sidebar() {
 						<h1>Cinema</h1>
 						<h2>🍟</h2>
 					</div>
-					<div className="close">
+					<div className="close" onClick={() => setOpen(false)}>
 						<MdOutlineClose color="white" size={30} />
 					</div>
 					<div className="nav_links">
