@@ -13,12 +13,11 @@ import StateContext, { contextProvider } from "../StateContext";
 import { toggleInterface } from "../StateContext";
 
 function Sidebar() {
-	const { open } = useContext<toggleInterface | null>(contextProvider);
-
+	const { open, setOpen } = useContext(contextProvider);
 	console.log(open);
 	return (
 		<StateContext>
-			<div className="sidebar">
+			<div className={`sidebar ${open && "show"}`}>
 				<div className="container">
 					<div className="logo">
 						<h1>Cinema</h1>
