@@ -40,6 +40,7 @@ $breakpoints: (
 body {
 	min-height: 100vh;
 	background-color: var(--body-color);
+	overflow-x: hidden;
 }
 
 .container {
@@ -541,6 +542,9 @@ body {
 				display: flex;
 				justify-content: flex-end;
 				margin-top: f.rem(30);
+				&:hover {
+					cursor: pointer;
+				}
 			}
 			.logo {
 				cursor: pointer;

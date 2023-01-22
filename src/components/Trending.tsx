@@ -64,7 +64,7 @@ export default function Trending(): JSX.Element {
 			<SwiperSlide className="swiper-card" key={data.id}>
 				<img
 					src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
-					alt=""
+					alt={data?.original_name}
 				/>
 				<div className="onCard">
 					<div className="left">

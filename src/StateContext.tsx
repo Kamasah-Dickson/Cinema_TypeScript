@@ -1,17 +1,20 @@
-import React, { createContext, useState } from "react";
-import { contextInterface } from "./interface";
+import React, { PropsWithChildren, createContext, useState } from "react";
 
-export const StateContext = createContext<contextInterface | null>(null);
+export interface toggleInterface {
+	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+	open: boolean;
+}
 
-function ContextProvider({ children }: React.PropsWithChildren<{}>) {
+export const contextProvider = createContext<toggleInterface | null>(null);
+
+function StateContext({ children }: PropsWithChildren) {
 	const [open, setOpen] = useState<boolean>(false);
-	const onClick = () => setOpen(false);
 
 	return (
-		<StateContext.Provider value={{ setOpen, open, onClick }}>
+		<contextProvider.Provider value={{ open, setOpen }}>
 			{children}
-		</StateContext.Provider>
+		</contextProvider.Provider>
 	);
 }
 
-export default ContextProvider;
+export default StateContext;

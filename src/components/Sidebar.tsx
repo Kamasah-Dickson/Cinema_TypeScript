@@ -9,10 +9,13 @@ import { MdOutlineClose } from "react-icons/md";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
 import { BiExit } from "react-icons/bi";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
-import StateContext from "../StateContext";
-import { contextInterface } from "../interface";
+import StateContext, { contextProvider } from "../StateContext";
+import { toggleInterface } from "../StateContext";
 
 function Sidebar() {
+	const { open } = useContext<toggleInterface | null>(contextProvider);
+
+	console.log(open);
 	return (
 		<StateContext>
 			<div className="sidebar">
