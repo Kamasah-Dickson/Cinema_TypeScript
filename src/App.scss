@@ -462,7 +462,7 @@ body {
 					}
 					button {
 						cursor: pointer;
-						padding: f.rem(9);
+						padding: f.rem(10) f.rem(15);
 						color: var(--white);
 						border-radius: f.rem(10);
 						border: none;
@@ -478,17 +478,8 @@ body {
 							transform: scale(0.96);
 						}
 					}
-					.watch {
-						background-color: var(--blue);
-						@include breakpoint-max(v-small) {
-							font-size: f.rem(12);
-						}
-					}
 					.trailer {
-						background-color: rgba(255, 255, 255, 0.411);
-						@include breakpoint-max(v-small) {
-							display: none;
-						}
+						background-color: var(--blue);
 					}
 				}
 			}
@@ -675,8 +666,8 @@ body {
 					}
 					.left {
 						.img {
-							width: f.rem(35);
-							height: f.rem(35);
+							width: f.rem(30);
+							height: f.rem(30);
 							object-fit: cover;
 							border-radius: 100%;
 							img {

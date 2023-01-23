@@ -90,7 +90,6 @@ export default function Trending(): JSX.Element {
 							>
 								Trailer
 							</button>
-							<button className="watch">Watch movie</button>
 						</div>
 					</div>
 				</div>
