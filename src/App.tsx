@@ -7,13 +7,16 @@ import TopRated from "./components/TopRated";
 import ContinueWatching from "./components/ContinueWatching";
 import Aside from "./components/Aside";
 import Main from "./components/Main";
+import StateContext from "./StateContext";
 
 const App: React.FC = () => {
 	return (
 		<div className="container">
-			<header className="header">
-				<Header />
-			</header>
+			<StateContext>
+				<header className="header">
+					<Header />
+				</header>
+			</StateContext>
 			<aside className="aside">
 				<Aside />
 			</aside>

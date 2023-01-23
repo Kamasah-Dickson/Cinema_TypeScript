@@ -4,8 +4,11 @@ import CustomizeIcons from "./CustomizeIcons";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import { contextProvider } from "../StateContext";
 
 function Header() {
+	const { setOpen } = useContext(contextProvider);
+
 	return (
 		<>
 			<div className="container">
@@ -14,12 +17,12 @@ function Header() {
 					<NavLink to="/series">Series</NavLink>
 					<NavLink to="/show">Tv show</NavLink>
 				</nav>
-				<NavLink to="/notification">
+				<NavLink to="/notification" className="notify">
 					<CustomizeIcons>
 						<IoMdNotificationsOutline />
 					</CustomizeIcons>
 				</NavLink>
-				<div className="menu">
+				<div className="menu" onClick={() => setOpen(true)}>
 					<HiMenuAlt3 color="white" size={25} />
 				</div>
 			</div>

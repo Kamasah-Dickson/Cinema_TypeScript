@@ -18,6 +18,8 @@ p {
 	--light-blue: #6780c0;
 	--blue: #123996;
 	--filter: hsla(260, 18%, 10%, 0.993);
+	--scrollbar: blue;
+	--scrollbar2: purple;
 }
 
 $small-font: f.rem(12);
@@ -41,10 +43,26 @@ body {
 	min-height: 100vh;
 	background-color: var(--body-color);
 	overflow-x: hidden;
+	&::-webkit-scrollbar {
+		width: f.rem(10);
+		background-color: var(--filter);
+	}
+	&::-webkit-scrollbar-thumb {
+		background: linear-gradient(to top, var(--scrollbar2), var(--scrollbar));
+		border-radius: f.rem(10);
+		backdrop-filter: blur(3px);
+		width: 100%;
+		&:hover {
+			box-shadow: inset -1rem 0 1rem -1.2rem purple;
+		}
+	}
+	&::-webkit-scrollbar-track {
+		background-color: var(--filter);
+	}
 }
 
 .container {
-	width: min(100% - f.rem(20), f.rem(1440));
+	width: min(100% - f.rem(20), f.rem(1500));
 	margin-inline: auto;
 	display: grid;
 	grid-template-areas:
@@ -153,6 +171,7 @@ body {
 						width: 100%;
 						height: f.rem(1);
 						background-color: var(--dark-brown);
+
 						opacity: 0.3;
 					}
 				}
@@ -513,6 +532,9 @@ body {
 }
 
 @include breakpoint-max(medium) {
+	.notify {
+		display: none;
+	}
 	.sidebar {
 		position: fixed;
 		top: 0;
@@ -523,7 +545,6 @@ body {
 		background-color: var(--filter);
 		backdrop-filter: saturate(50%) blur(20px);
 		-webkit-backdrop-filter: saturate(50%) blur(8px);
-		display: block;
 		transform: translateX(100%);
 		.container {
 			width: 100%;
@@ -556,9 +577,10 @@ body {
 				margin-top: f.rem(30);
 				display: flex;
 				flex-direction: column;
-				// align-items: flex-start;
+				align-items: flex-start;
 				height: auto;
 				gap: f.rem(35);
+				width: 80%;
 				.first-nav {
 					position: relative;
 					&::before {
@@ -668,5 +690,6 @@ body {
 
 	.show {
 		transform: translateX(0);
+		display: block;
 	}
 }
