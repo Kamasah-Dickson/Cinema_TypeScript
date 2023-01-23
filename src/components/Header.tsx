@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import CustomizeIcons from "./CustomizeIcons";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
@@ -7,7 +8,13 @@ import Sidebar from "./Sidebar";
 import { contextProvider } from "../context/StateContext";
 
 function Header() {
-	const { setOpen } = useContext(contextProvider);
+	const { setOpen, theme, setTheme } = useContext(contextProvider);
+
+	useEffect(() => {
+		theme
+			? document.body.classList.add("lightMode")
+			: document.body.classList.remove("lightMode");
+	}, [theme]);
 
 	return (
 		<>
@@ -22,6 +29,13 @@ function Header() {
 						<IoMdNotificationsOutline />
 					</CustomizeIcons>
 				</NavLink>
+				<div className="theme" onClick={() => setTheme((prev) => !prev)}>
+					{!theme ? (
+						<MdOutlineLightMode color="white" size={25} />
+					) : (
+						<MdDarkMode size={25} />
+					)}
+				</div>
 				<div className="menu" onClick={() => setOpen(true)}>
 					<HiMenuAlt3 color="white" size={25} />
 				</div>
