@@ -1,10 +1,9 @@
+import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import { SlClose } from "react-icons/sl";
-import React, { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
@@ -24,7 +23,7 @@ function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 			{show && (
 				<div
 					className="overlay"
-					onClick={() => setMovieError("")} //
+					onClick={() => setMovieError("")} 
 				>
 					{!movieError && (
 						<SlClose
