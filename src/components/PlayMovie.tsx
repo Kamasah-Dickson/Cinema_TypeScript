@@ -73,6 +73,7 @@ function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 							finalMovies.map((data, index) => (
 								<SwiperSlide key={index} className="slider">
 									<ReactPlayer
+										onPlay={() => setMovieError("")}
 										light="true"
 										controls
 										url={data}

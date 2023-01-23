@@ -5,18 +5,13 @@ export interface toggleInterface {
 	open: boolean;
 }
 
-// export const contextProvider = createContext<toggleInterface>({
-// 	setOpen:()=> {},
-// 	open: true,
-// });
-
 export const contextProvider = createContext<toggleInterface>({
-	open: true,
+	open: false,
 	setOpen: () => {},
 });
 
 function StateContext({ children }: PropsWithChildren) {
-	const [open, setOpen] = useState<boolean>(true);
+	const [open, setOpen] = useState<boolean>(false);
 
 	return (
 		<contextProvider.Provider value={{ open, setOpen }}>
