@@ -7,7 +7,7 @@ import TopRated from "./components/TopRated";
 import ContinueWatching from "./components/ContinueWatching";
 import Aside from "./components/Aside";
 import Main from "./components/Main";
-import StateContext from "./StateContext";
+import StateContext from "./context/StateContext";
 
 const App: React.FC = () => {
 	return (

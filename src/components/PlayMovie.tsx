@@ -37,7 +37,9 @@ function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 					)}
 					{movieError && (
 						<>
-							<p style={{ fontSize: "40px", color: "red" }}>
+							<p
+								style={{ fontSize: "40px", color: "red", textAlign: "center" }}
+							>
 								Check your network and try again
 							</p>
 							<p

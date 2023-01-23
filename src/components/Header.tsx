@@ -4,7 +4,7 @@ import CustomizeIcons from "./CustomizeIcons";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import { contextProvider } from "../StateContext";
+import { contextProvider } from "../context/StateContext";
 
 function Header() {
 	const { setOpen } = useContext(contextProvider);

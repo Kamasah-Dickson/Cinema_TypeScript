@@ -11,7 +11,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
 import { BiExit } from "react-icons/bi";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
-import StateContext, { contextProvider } from "../StateContext";
+import StateContext, { contextProvider } from "../context/StateContext";
 
 function Sidebar() {
 	const { open, setOpen } = useContext(contextProvider);

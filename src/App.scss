@@ -506,6 +506,7 @@ body {
 	font-size: 8rem;
 	z-index: 100;
 	background-color: #020005da;
+
 	.close {
 		display: inline-block;
 		align-items: center;
@@ -513,6 +514,8 @@ body {
 		margin-bottom: f.rem(20);
 		transform: translateY(-150px);
 		justify-content: flex-end;
+		outline: none;
+		cursor: pointer;
 	}
 	&:hover {
 		.close {

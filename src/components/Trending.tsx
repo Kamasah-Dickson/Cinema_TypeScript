@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
 
-import "swiper/css";
+// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/scrollbar";
 
 // import StarRatings from "react-star-ratings";
 import useFetch from "../useFetch";
