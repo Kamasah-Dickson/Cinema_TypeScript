@@ -116,21 +116,18 @@ export default function Trending(): JSX.Element {
 				{error && <p className="error">{error}</p>}
 
 				<Swiper
+					slidesPerView={1}
 					centeredSlides={true}
 					autoplay={{
 						delay: 4000,
 						disableOnInteraction: false,
 					}}
-					// breakpoints={{
-					// 	900: {
-					// 		slidesPerView: 1,
-					// 	},
-					// 	1200: {
-					// 		slidesPerView: 2,
-					// 	},
-					// }}
+					breakpoints={{
+						1100: {
+							slidesPerView: 2,
+						},
+					}}
 					loop={true}
-					slidesPerView={2}
 					spaceBetween={25}
 					modules={[Navigation, A11y, Autoplay]}
 					navigation
