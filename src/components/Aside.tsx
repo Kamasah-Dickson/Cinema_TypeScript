@@ -40,7 +40,7 @@ const Aside: React.FC = () => {
 						<p>Community</p>
 					</NavLink>
 
-					<NavLink to="/search">
+					<NavLink to="/searchmovies">
 						<CustomizeIcons>
 							<BiSearch size="20" />
 						</CustomizeIcons>
