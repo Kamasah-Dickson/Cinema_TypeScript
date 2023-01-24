@@ -40,7 +40,7 @@ function TopRated() {
 					{error && <p className="error">{error}</p>}
 					{movies?.results?.slice(0, load).map((movies: ratedMovies) => {
 						return (
-							<div key={movies.id} className="movie">
+							<div key={movies.id} className="movie" tabIndex={0}>
 								<img
 									src={`https://image.tmdb.org/t/p/original${movies?.poster_path}`}
 									alt={movies?.original_title}
@@ -53,7 +53,7 @@ function TopRated() {
 				{/* alert(); */}
 				{!pending && load !== movies?.results?.length && movies && (
 					<button style={buttonStyle} onClick={handleLoad}>
-						LoadMore
+						Load More
 					</button>
 				)}
 			</div>

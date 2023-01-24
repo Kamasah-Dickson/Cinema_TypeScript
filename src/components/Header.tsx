@@ -22,7 +22,7 @@ function Header() {
 				<nav>
 					<NavLink to="/">Home</NavLink>
 					<NavLink to="/series">Series</NavLink>
-					<NavLink to="/show">Tv show</NavLink>
+					<NavLink to="/show">Tv shows</NavLink>
 				</nav>
 				<NavLink to="/notification" className="notify">
 					<CustomizeIcons>

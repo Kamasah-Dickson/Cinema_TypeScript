@@ -20,19 +20,23 @@ p {
 	--blue: #123996;
 	--filter: hsla(260, 18%, 10%, 0.993);
 	--scrollbar: blue;
+	--scrollbar3: rgb(43, 43, 184);
+	--white3: #fff;
 	--scrollbar2: purple;
-	--loading: purple;
+	--loading: rgba(128, 0, 128, 0.623);
 }
 
 .lightMode {
+	--scrollbar3: rgb(146, 39, 146);
 	--body-color: #fff;
 	--white: #000;
+	--white3: purple;
 	--white2: #fff;
 	// --dark-brown: #000;
 	// --light-blue: #6780c0;
 	// --blue: #123996;
 	--filter: hsla(0, 0%, 100%, 0.993);
-	--loading: blue;
+	--loading: rgba(0, 0, 255, 0.644);
 }
 
 $small-font: f.rem(12);
@@ -58,6 +62,7 @@ body {
 	min-height: 100vh;
 	background-color: var(--body-color);
 	overflow-x: hidden;
+	transition: background 0.2s ease;
 	&::-webkit-scrollbar {
 		width: f.rem(10);
 		background-color: var(--filter);
@@ -111,6 +116,7 @@ body {
 		backdrop-filter: saturate(50%) blur(20px);
 		-webkit-backdrop-filter: saturate(50%) blur(8px);
 		box-shadow: 0px 1rem 1rem -1rem rgba(0, 0, 0, 0.2);
+		transition: background 0.2s ease;
 
 		.container {
 			display: flex;
@@ -138,9 +144,13 @@ body {
 			}
 			a {
 				cursor: pointer;
+				svg {
+					fill: var(--white);
+				}
+
 				&:hover {
 					svg {
-						fill: var(--white);
+						fill: rgba(180, 33, 180, 0.774);
 						transition: 0.3s ease;
 					}
 				}
@@ -186,7 +196,7 @@ body {
 				justify-content: flex-start;
 				h1 {
 					font-weight: 600;
-					color: var(--white);
+					color: var(--white3);
 				}
 			}
 			.nav_links {
@@ -226,6 +236,9 @@ body {
 						cursor: pointer;
 						text-decoration: none;
 						color: var(--dark-brown);
+						text-decoration: none;
+						cursor: pointer;
+						font-weight: 500;
 						&.active {
 							border-left: f.rem(2) solid var(--light-blue);
 						}
@@ -233,17 +246,11 @@ body {
 							margin-left: f.rem(10);
 						}
 						&:hover {
-							color: var(--white);
+							color: var(--white3);
 							transition: 0.3s ease;
 							svg {
-								fill: var(--light-blue);
+								fill: var(--loading);
 							}
-						}
-						a {
-							color: var(--dark-brown);
-							text-decoration: none;
-							cursor: pointer;
-							font-weight: 500;
 						}
 					}
 				}
@@ -365,7 +372,7 @@ body {
 
 // ========top-rated=============
 .top-rated-section {
-	margin-top: f.rem(60);
+	margin-top: f.rem(50);
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -387,11 +394,19 @@ body {
 			gap: f.rem(20);
 			margin-bottom: f.rem(50);
 			.movie {
+				max-width: f.rem(400);
+				margin-inline: auto;
+				width: 100%;
 				border-radius: f.rem(20);
 				height: f.rem(350);
 				overflow: hidden;
 				position: relative;
-				&:hover {
+				box-shadow: 1rem 1rem 1rem -1.2rem rgba(0, 0, 0, 0.3);
+				transition: transform 0.3s ease-in-out;
+				&:hover,
+				&:focus {
+					box-shadow: 1rem 1rem 1rem -1rem rgba(128, 0, 128, 0.73);
+					transform: scale(1.03);
 					cursor: pointer;
 					p {
 						visibility: visible;
@@ -432,9 +447,18 @@ body {
 			width: 100%;
 			margin-inline: auto;
 			padding: f.rem(15) f.rem(20);
+			font-size: f.rem(17);
+			transition: background 0.25s ease-in;
+			box-shadow: 1rem 0 1rem -1rem rgba(0, 0, 0, 0.3);
+			border: f.rem(1) solid white !important;
 			&:active {
-				transform: scale(0.8);
+				transform: scale(1.03);
 				transition: 0.1s ease;
+			}
+			&:hover {
+				background-color: rgba(97, 32, 182, 0.788) !important;
+				box-shadow: 1rem 1rem 1rem -1rem rgba(87, 0, 128, 0.568);
+				border: f.rem(1) solid var(--body-color) !important;
 			}
 		}
 	}
@@ -571,12 +595,14 @@ body {
 					}
 					button {
 						cursor: pointer;
-						padding: f.rem(10) f.rem(15);
+						padding: f.rem(12) f.rem(20);
 						color: var(--white2);
 						border-radius: f.rem(10);
 						border: none;
 						font-size: f.rem(15);
-						&:hover {
+						transition: 0.3s ease;
+						&:hover,
+						&:active {
 							opacity: 0.86;
 							transition: opacity 0.2s ease;
 						}
@@ -588,7 +614,10 @@ body {
 						}
 					}
 					.trailer {
-						background-color: var(--blue);
+						background-color: var(--scrollbar3);
+						&:hover {
+							transform: scale(1.03);
+						}
 					}
 				}
 			}
