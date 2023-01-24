@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
+import { contextProvider } from "../context/StateContext";
 
 // Import Swiper styles
 import "swiper/css";
@@ -12,7 +13,6 @@ import PlayMovie from "./PlayMovie";
 
 const url = "https://api.themoviedb.org/3";
 const nowPlaying = `${url}/movie/now_playing`;
-const topRatedUrl = `${url}/movie/top_rated`;
 const movieUrl = `${url}/movie/157336`;
 const genUrl = `${url}/genre/movie/list`;
 const moviesUrl = `${url}/discover/movie`;
@@ -25,6 +25,8 @@ export default function Trending(): JSX.Element {
 	const [movieUrl, setMovieUrl] = useState<any>([]);
 	const [show, setShow] = useState<boolean>(false);
 	const [movieError, setMovieError] = useState<string>("");
+
+	const { theme } = useContext(contextProvider);
 
 	async function getVideoIdFromTMDB(movieId: string) {
 		try {
@@ -57,6 +59,11 @@ export default function Trending(): JSX.Element {
 			setShow(false);
 		}
 	}
+
+	const styles = {
+		fontSize: "30px",
+		marginLeft: "30px",
+	};
 
 	const result = movies?.results?.map((data: any) => {
 		return (
@@ -109,7 +116,7 @@ export default function Trending(): JSX.Element {
 			<div className="trending-section">
 				<h2>Trending movies🔥</h2>
 				{pending && (
-					<p style={{ color: "white", fontSize: "25px", marginLeft: "30px" }}>
+					<p style={styles} className="loading">
 						Loading...
 					</p>
 				)}
