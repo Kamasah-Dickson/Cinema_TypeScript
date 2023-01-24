@@ -37,7 +37,7 @@ function Header() {
 					)}
 				</div>
 				<div className="menu" onClick={() => setOpen(true)}>
-					<HiMenuAlt3 color="white" size={25} />
+					<HiMenuAlt3 color={theme ? "black" : "white"} size={25} />
 				</div>
 			</div>
 			<div className="menu">

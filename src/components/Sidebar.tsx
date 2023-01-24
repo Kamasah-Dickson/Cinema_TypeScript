@@ -14,7 +14,7 @@ import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import StateContext, { contextProvider } from "../context/StateContext";
 
 function Sidebar() {
-	const { open, setOpen } = useContext(contextProvider);
+	const { open, setOpen, theme } = useContext(contextProvider);
 	return (
 		<div className={`sidebar ${open && "show"}`}>
 			<div className="container">
@@ -23,7 +23,7 @@ function Sidebar() {
 					<h2>🍟</h2>
 				</div>
 				<div className="close" onClick={() => setOpen(false)}>
-					<MdOutlineClose color="white" size={30} />
+					<MdOutlineClose color={theme ? "black" : "white"} size={30} />
 				</div>
 				<div className="nav_links">
 					<h2>Menu</h2>

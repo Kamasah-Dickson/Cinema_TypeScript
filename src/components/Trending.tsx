@@ -77,7 +77,7 @@ export default function Trending(): JSX.Element {
 					<div className="right">
 						<h3>{data?.original_name}</h3>
 						<span>{data?.first_air_date}</span>
-						<p>{data.overview.substring(0, 170) + "..."}</p>
+						<p>{data.overview.substring(0, 200) + "..."}</p>
 						<div className="attr">
 							<span>{data?.media_type}</span>
 							<span>{data?.original_language}</span>
@@ -121,15 +121,16 @@ export default function Trending(): JSX.Element {
 						delay: 4000,
 						disableOnInteraction: false,
 					}}
-					breakpoints={{
-						900: {
-							slidesPerView: 1,
-						},
-						1200: {
-							slidesPerView: 2,
-						},
-					}}
+					// breakpoints={{
+					// 	900: {
+					// 		slidesPerView: 1,
+					// 	},
+					// 	1200: {
+					// 		slidesPerView: 2,
+					// 	},
+					// }}
 					loop={true}
+					slidesPerView={2}
 					spaceBetween={25}
 					modules={[Navigation, A11y, Autoplay]}
 					navigation
