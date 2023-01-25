@@ -5,7 +5,6 @@ import { contextProvider } from "../context/StateContext";
 
 function TopRated() {
 	const url = "https://api.themoviedb.org/3";
-	const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
 	const topRatedUrl = `${url}/movie/top_rated`;
 	const { movies, pending, error }: any = useFetch(topRatedUrl);
 	const { theme } = useContext(contextProvider);
