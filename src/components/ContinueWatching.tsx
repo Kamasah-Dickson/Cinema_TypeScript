@@ -26,7 +26,7 @@ function ContinueWatching() {
 					src={`https://image.tmdb.org/t/p/original${data?.backdrop_path}`}
 					alt={data?.original_title}
 				/>
-				{/* <div className="onCard">
+				<div className="onCard">
 					<div className="left">
 						<div className="img">
 							<img
@@ -39,17 +39,17 @@ function ContinueWatching() {
 						<h3>{data?.original_title}</h3>
 						<span>{data?.release_date}</span>
 						<p>{data.overview.substring(0, 200) + "..."}</p>
-						<div className="attr"> */}
-				{/* <span>{data?.media_type}</span> */}
-				{/* <span>{data?.original_language}</span>
+						<div className="attr">
+							<span>{data?.media_type}</span>
+							<span>{data?.original_language}</span>
 						</div>
 						<div className="buttons">
 							<button id="load-video-button" className="trailer">
-								Trailer
+								Learn More
 							</button>
 						</div>
 					</div>
-				</div> */}
+				</div>
 			</SwiperSlide>
 		);
 	});
@@ -81,7 +81,6 @@ function ContinueWatching() {
 				spaceBetween={25}
 				modules={[Navigation, A11y, Autoplay]}
 				navigation
-				scrollbar={{ draggable: true }}
 			>
 				{continueMovie}
 			</Swiper>

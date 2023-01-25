@@ -134,7 +134,6 @@ export default function Trending(): JSX.Element {
 					spaceBetween={25}
 					modules={[Navigation, A11y, Autoplay]}
 					navigation
-					scrollbar={{ draggable: true }}
 					className="swiper-container"
 				>
 					{result}
