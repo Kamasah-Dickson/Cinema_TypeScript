@@ -56,7 +56,7 @@ function ContinueWatching() {
 
 	return (
 		<div className="continueWatching-section">
-			<h2>ContinueWatching</h2>
+			<h2>ContinueWatching🎁</h2>
 			{pending && (
 				<p style={styles} className="loading">
 					Loading...
