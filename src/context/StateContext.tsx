@@ -15,14 +15,14 @@ export interface toggleInterface {
 export const contextProvider = createContext<toggleInterface>({
 	open: false,
 	setOpen: () => {},
-	theme: false,
+	theme: true,
 	setTheme: () => {},
 });
 
 function StateContext({ children }: PropsWithChildren) {
 	const [open, setOpen] = useState<boolean>(false);
 	const [theme, setTheme] = useState<boolean>(
-		JSON.parse(localStorage.getItem("theme") as any)
+		JSON.parse(localStorage.getItem("theme") || (true as any))
 	);
 
 	useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useFetch from "../useFetch";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,10 +20,8 @@ function ContinueWatching() {
 	};
 
 	const continueMovie = movies?.results?.map((data: any) => {
-		// return data;
 		return (
-			// <SwiperSlide className="swiper-card" key={data.id}>
-			<div className="card-container">
+			<SwiperSlide className="card" key={data.id}>
 				<img
 					src={`https://image.tmdb.org/t/p/original${data?.backdrop_path}`}
 					alt={data?.original_title}
@@ -52,15 +50,13 @@ function ContinueWatching() {
 						</div>
 					</div>
 				</div> */}
-				{/* </SwiperSlide> */}
-			</div>
+			</SwiperSlide>
 		);
 	});
-	// console.log(continueMovie);
 
 	return (
 		<div className="continueWatching-section">
-			<h1>ContinueWatching</h1>
+			<h2>ContinueWatching</h2>
 			{pending && (
 				<p style={styles} className="loading">
 					Loading...
@@ -68,30 +64,27 @@ function ContinueWatching() {
 			)}
 			{error && <p className="error">{error}</p>}
 
-			{/* <Swiper */}
-			<div
-				className="card"
-				// slidesPerView={1}
-				// centeredSlides={true}
-				// autoplay={{
-				// 	delay: 4000,
-				// 	disableOnInteraction: false,
-				// }}
-				// breakpoints={{
-				// 	1100: {
-				// 		slidesPerView: 2,
-				// 	},
-				// }}
-				// loop={true}
-				// spaceBetween={25}
-				// modules={[Navigation, A11y, Autoplay]}
-				// navigation
-				// scrollbar={{ draggable: true }}
-				// className="swiper-container"
+			<Swiper
+				className="card-container"
+				slidesPerView={1}
+				centeredSlides={true}
+				autoplay={{
+					delay: 4000,
+					disableOnInteraction: false,
+				}}
+				breakpoints={{
+					1100: {
+						slidesPerView: 2,
+					},
+				}}
+				loop={true}
+				spaceBetween={25}
+				modules={[Navigation, A11y, Autoplay]}
+				navigation
+				scrollbar={{ draggable: true }}
 			>
 				{continueMovie}
-			</div>
-			{/* </Swiper> */}
+			</Swiper>
 		</div>
 	);
 }

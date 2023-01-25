@@ -49,8 +49,7 @@ function TopRated() {
 						);
 					})}
 				</div>
-				{/* alert(); */}
-				{!pending && load !== movies?.results?.length && movies && (
+				{!pending && load !== movies?.results?.length && movies && !error && (
 					<button style={buttonStyle} onClick={handleLoad}>
 						Load More
 					</button>
