@@ -28,6 +28,6 @@ const useFetch = (yourData) => {
 		};
 		fetchData();
 	}, [yourData]);
-	return { movies, error, pending };
+	return { movies, error, pending, setError };
 };
 export default useFetch;
