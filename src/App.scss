@@ -23,7 +23,7 @@ p {
 	--scrollbar3: rgb(43, 43, 184);
 	--white3: #fff;
 	--scrollbar2: purple;
-	--loading: rgba(128, 0, 128, 0.623);
+	--loading: #fff;
 }
 
 .lightMode {
@@ -32,9 +32,6 @@ p {
 	--white: #000;
 	--white3: purple;
 	--white2: #fff;
-	// --dark-brown: #000;
-	// --light-blue: #6780c0;
-	// --blue: #123996;
 	--filter: hsla(0, 0%, 100%, 0.993);
 	--loading: rgba(0, 0, 255, 0.644);
 }
@@ -95,14 +92,13 @@ body {
 		"aside main main"
 		"aside main main"
 		"aside footer footer";
-	grid-template-columns: f.rem(240) auto f.rem(240);
+	grid-template-columns: repeat(3, auto);
 	@include breakpoint-max(medium) {
 		grid-template-areas:
 			"header header header"
 			"main main main"
 			"main main main"
 			"footer footer footer";
-		grid-template-columns: f.rem(180) auto f.rem(240);
 	}
 
 	.header {
@@ -626,7 +622,6 @@ body {
 
 	overflow: hidden;
 	.swiper-container {
-		height: 100%;
 		.swiper-card {
 			display: grid;
 			overflow: hidden;
