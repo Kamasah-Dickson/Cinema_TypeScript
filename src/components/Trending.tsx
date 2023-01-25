@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
-import { contextProvider } from "../context/StateContext";
 
 // Import Swiper styles
 import "swiper/css";
@@ -12,7 +11,6 @@ import useFetch from "../useFetch";
 import PlayMovie from "./PlayMovie";
 
 const url = "https://api.themoviedb.org/3";
-const nowPlaying = `${url}/movie/now_playing`;
 const movieUrl = `${url}/movie/157336`;
 const genUrl = `${url}/genre/movie/list`;
 const moviesUrl = `${url}/discover/movie`;
@@ -25,8 +23,6 @@ export default function Trending(): JSX.Element {
 	const [movieUrl, setMovieUrl] = useState<any>([]);
 	const [show, setShow] = useState<boolean>(false);
 	const [movieError, setMovieError] = useState<string>("");
-
-	const { theme } = useContext(contextProvider);
 
 	async function getVideoIdFromTMDB(movieId: string) {
 		try {
