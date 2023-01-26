@@ -92,7 +92,7 @@ body {
 		"aside main main"
 		"aside main main"
 		"aside footer footer";
-	grid-template-columns: repeat(3, auto);
+	grid-template-columns: repeat(2, f.rem(250) auto);
 	@include breakpoint-max(medium) {
 		grid-template-areas:
 			"header header header"
@@ -103,10 +103,12 @@ body {
 
 	.header {
 		height: 100%;
+		width: 100%;
 		grid-area: header;
 		margin-bottom: f.rem(20);
 		position: sticky;
 		top: 0;
+		left: 0;
 		z-index: 99;
 		background-color: var(--filter);
 		backdrop-filter: saturate(50%) blur(20px);
@@ -120,6 +122,7 @@ body {
 			justify-content: space-between;
 			padding: f.rem(20) f.rem(20) f.rem(20) f.rem(15);
 			height: 100%;
+			width: 100%;
 			@include breakpoint-max(medium) {
 				padding: f.rem(10) f.rem(20) f.rem(10) f.rem(15);
 			}
@@ -173,6 +176,7 @@ body {
 		top: f.rem(0);
 		left: 0;
 		height: 100vh;
+		z-index: 99;
 		box-shadow: 0px 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
 
 		@include breakpoint-max(medium) {
@@ -380,6 +384,7 @@ body {
 			font-weight: 400;
 			margin-left: f.rem(25);
 			font-size: $font-larger;
+			text-align: left;
 			@include breakpoint-max(v-small) {
 				font-size: $font-large;
 			}
