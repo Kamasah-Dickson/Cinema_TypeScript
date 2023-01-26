@@ -366,7 +366,8 @@ body {
 
 .trending-section,
 .top-rated-section,
-.continueWatching-section {
+.continueWatching-section,
+.upcoming-section {
 	width: 100%;
 }
 
@@ -393,7 +394,7 @@ body {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(f.rem(200), 1fr));
 			gap: f.rem(20);
-			margin-bottom: f.rem(50);
+			margin-bottom: f.rem(30);
 			.movie {
 				max-width: f.rem(400);
 				margin-inline: auto;
@@ -467,7 +468,8 @@ body {
 		}
 	}
 }
-.continueWatching-section {
+.continueWatching-section,
+.upcoming-section {
 	margin-top: f.rem(60);
 	overflow: hidden;
 	h2 {
@@ -480,8 +482,10 @@ body {
 			font-size: $font-large;
 		}
 	}
-	.card-container {
-		.card {
+	.card-container,
+	.upcoming-container {
+		.card,
+		.upcoming-movie {
 			width: 80%;
 			margin-inline: auto;
 			border-radius: f.rem(25);

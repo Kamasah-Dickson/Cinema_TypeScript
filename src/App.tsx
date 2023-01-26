@@ -14,6 +14,7 @@ import Community from "./components/Community";
 import SearchMovie from "./components/SearchMovie";
 import Settings from "./components/Settings";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Upcoming from "./components/Upcoming";
 
 const App: React.FC = () => {
 	return (
@@ -35,8 +36,8 @@ const App: React.FC = () => {
 								<Main>
 									<Trending />
 									<TopRated />
+									<Upcoming />
 									<ContinueWatching />
-									{/* <ContinueWatching /> */}
 								</Main>
 							</main>
 						}
