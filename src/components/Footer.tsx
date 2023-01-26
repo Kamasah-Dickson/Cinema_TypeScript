@@ -4,7 +4,6 @@ import { FaLinkedin } from "react-icons/fa";
 import { ImGithub } from "react-icons/im";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import me from "../assets/img/EgLF6Jmi_4x.jpg";
-import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
 	const Year = new Date().getFullYear();

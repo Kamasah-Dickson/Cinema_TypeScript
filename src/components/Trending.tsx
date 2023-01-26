@@ -106,7 +106,7 @@ export default function Trending(): JSX.Element {
 				setMovieError={setMovieError}
 			/>
 			<div className="trending-section">
-				<h2>Trending movies🔥</h2>
+				<h2>Latest and trending🔥</h2>
 				{pending && (
 					<p style={styles} className="loading">
 						Loading...
