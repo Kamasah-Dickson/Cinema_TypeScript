@@ -66,7 +66,7 @@ function Upcoming() {
 			{error && <p className="error">{error}</p>}
 			<Swiper
 				className="upcoming-container"
-				slidesPerView={2}
+				slidesPerView={1}
 				centeredSlides={true}
 				autoplay={{
 					delay: 4000,

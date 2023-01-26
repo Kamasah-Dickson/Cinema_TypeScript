@@ -30,6 +30,7 @@ p {
 	--scrollbar3: rgb(146, 39, 146);
 	--body-color: #fff;
 	--white: #000;
+	--scrollbar: #ec3c08;
 	--white3: purple;
 	--white2: #fff;
 	--filter: hsla(0, 0%, 100%, 0.993);
@@ -349,7 +350,52 @@ body {
 	}
 	.footer {
 		grid-area: footer;
-		background-color: peru;
+		margin-top: f.rem(50);
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: f.rem(20) 0;
+			.icons {
+				margin-bottom: f.rem(20);
+				display: flex;
+				gap: f.rem(20);
+				cursor: pointer;
+				a {
+					text-decoration: none;
+					color: transparent;
+				}
+				svg {
+					fill: var(--white);
+					transition: 0.3s;
+					&:hover {
+						fill: var(--scrollbar);
+					}
+				}
+			}
+			p {
+				font-size: f.rem(20);
+				color: var(--white);
+			}
+			.img {
+				margin-top: f.rem(20);
+				width: f.rem(60);
+				height: f.rem(60);
+				cursor: pointer;
+				border-radius: 100%;
+				border: 3px solid transparent;
+				transition: border 0.3s ease;
+				&:hover {
+					border-color: var(--scrollbar);
+				}
+				img {
+					border-radius: 100%;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
 	}
 }
 
@@ -468,9 +514,13 @@ body {
 		}
 	}
 }
+
+.upcoming-section {
+	margin-bottom: f.rem(50);
+}
+
 .continueWatching-section,
 .upcoming-section {
-	margin-top: f.rem(60);
 	overflow: hidden;
 	h2 {
 		margin-bottom: f.rem(30);
@@ -882,10 +932,8 @@ body {
 						}
 						svg {
 							margin-left: f.rem(10);
-							svg {
-								width: f.rem(25);
-								height: f.rem(25);
-							}
+							width: f.rem(25);
+							height: f.rem(25);
 						}
 						&:hover {
 							color: var(--white);
