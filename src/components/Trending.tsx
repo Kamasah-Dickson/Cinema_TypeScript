@@ -11,10 +11,6 @@ import useFetch from "../useFetch";
 import PlayMovie from "./PlayMovie";
 
 const url = "https://api.themoviedb.org/3";
-const movieUrl = `${url}/movie/157336`;
-const genUrl = `${url}/genre/movie/list`;
-const moviesUrl = `${url}/discover/movie`;
-const personUrl = `${url}/trending/person/week`;
 const trendingUrl = `${url}/trending/all/day`;
 const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
 

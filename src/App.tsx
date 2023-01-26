@@ -36,6 +36,7 @@ const App: React.FC = () => {
 									<Trending />
 									<TopRated />
 									<ContinueWatching />
+									{/* <ContinueWatching /> */}
 								</Main>
 							</main>
 						}

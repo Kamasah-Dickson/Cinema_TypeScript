@@ -24,6 +24,7 @@ function Header() {
 					<NavLink to="/series">Series</NavLink>
 					<NavLink to="/show">Tv shows</NavLink>
 				</nav>
+
 				<NavLink to="/notification" className="notify">
 					<CustomizeIcons>
 						<IoMdNotificationsOutline />
