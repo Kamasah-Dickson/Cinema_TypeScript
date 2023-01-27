@@ -42,7 +42,16 @@ const App: React.FC = () => {
 							</main>
 						}
 					></Route>
-					<Route path="/Discovery" element={<Discovery />} />
+					<Route
+						path="/Discovery"
+						element={
+							<main className="main">
+								<Main>
+									<Discovery />
+								</Main>
+							</main>
+						}
+					/>
 					<Route path="/Community" element={<Community />} />
 					<Route path="/SearchMovies" element={<SearchMovie />} />
 					<Route path="/Settings" element={<Settings />} />
