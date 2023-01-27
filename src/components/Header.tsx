@@ -25,20 +25,22 @@ function Header() {
 					<NavLink to="/show">Tv shows</NavLink>
 				</nav>
 
-				<NavLink to="/notification" className="notify">
-					<CustomizeIcons>
-						<IoMdNotificationsOutline />
-					</CustomizeIcons>
-				</NavLink>
-				<div className="theme" onClick={() => setTheme((prev) => !prev)}>
-					{!theme ? (
-						<MdOutlineLightMode color="white" size={25} />
-					) : (
-						<MdDarkMode size={25} />
-					)}
-				</div>
-				<div className="menu" onClick={() => setOpen(true)}>
-					<HiMenuAlt3 color={theme ? "black" : "white"} size={25} />
+				<div className="group-icons">
+					<NavLink to="/notification" className="notify">
+						<CustomizeIcons>
+							<IoMdNotificationsOutline />
+						</CustomizeIcons>
+					</NavLink>
+					<div className="theme" onClick={() => setTheme((prev) => !prev)}>
+						{!theme ? (
+							<MdOutlineLightMode color="white" size={25} />
+						) : (
+							<MdDarkMode size={25} />
+						)}
+					</div>
+					<div className="menu" onClick={() => setOpen(true)}>
+						<HiMenuAlt3 color={theme ? "black" : "white"} size={25} />
+					</div>
 				</div>
 			</div>
 			<div className="menu">
