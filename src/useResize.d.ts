@@ -1,2 +1,2 @@
-declare function useResize(param: number): string;
+declare function useResize(param: number): any;
 export default useResize;
