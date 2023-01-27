@@ -13,6 +13,7 @@ import PageNotFound from "./components/PageNotFound";
 import Community from "./components/Community";
 import SearchMovie from "./components/SearchMovie";
 import Settings from "./components/Settings";
+import SingleMovie from "./components/SingleMovie";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Upcoming from "./components/Upcoming";
 
@@ -46,6 +47,7 @@ const App: React.FC = () => {
 					<Route path="/Community" element={<Community />} />
 					<Route path="/SearchMovies" element={<SearchMovie />} />
 					<Route path="/Settings" element={<Settings />} />
+					<Route path="/movie/:id" element={<SingleMovie />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 

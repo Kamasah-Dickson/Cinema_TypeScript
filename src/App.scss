@@ -16,6 +16,12 @@ p {
 	--white: white;
 	--white2: white;
 	--dark-brown: #6d6a70;
+
+	--dark-brown2: linear-gradient(
+		to right,
+		rgba(0, 0, 255, 0.863),
+		rgb(177, 10, 177)
+	);
 	--light-blue: #6780c0;
 	--blue: #123996;
 	--filter: hsla(260, 18%, 10%, 0.993);
@@ -31,6 +37,11 @@ p {
 	--body-color: #fff;
 	--white: #000;
 	--scrollbar: #ec3c08;
+	--dark-brown2: linear-gradient(
+		to left,
+		rgba(0, 0, 255, 0.863),
+		rgb(177, 10, 177)
+	);
 	--white3: purple;
 	--white2: #fff;
 	--filter: hsla(0, 0%, 100%, 0.993);
@@ -57,6 +68,7 @@ $breakpoints: (
 }
 
 body {
+	position: relative;
 	min-height: 100vh;
 	background-color: var(--body-color);
 	overflow-x: hidden;
@@ -132,6 +144,43 @@ body {
 			width: 100%;
 			@include breakpoint-max(medium) {
 				padding: f.rem(14) f.rem(20) f.rem(14) f.rem(15);
+			}
+
+			.search {
+				position: absolute;
+				left: 0;
+				top: f.rem(62);
+				width: 100%;
+				margin-inline: auto;
+				background-color: transparent;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				.wrapper {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: f.rem(10);
+					background: var(--dark-brown2);
+					border-radius: f.rem(30);
+					width: 400px;
+					padding: f.rem(15) f.rem(18);
+					box-shadow: 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.3);
+					input {
+						width: f.rem(350);
+						height: f.rem(40);
+						border-radius: f.rem(20);
+						padding: 0 f.rem(10);
+						border: none;
+						font-size: f.rem(16);
+						font-weight: 600;
+						outline: transparent;
+					}
+					svg {
+						cursor: pointer;
+						fill: var(--white2);
+					}
+				}
 			}
 			.menu {
 				display: none;
