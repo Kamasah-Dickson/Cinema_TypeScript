@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
-
+import { Link } from "react-router-dom";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -68,34 +68,36 @@ export default function Trending(): JSX.Element {
 					src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
 					alt={data?.original_name}
 				/>
-				<div className="onCard">
-					<div className="left">
-						<div className="img">
-							<img
-								src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
-								alt={data?.original_name}
-							/>
+				<Link to={`/movie/${data.id}`}>
+					<div className="onCard">
+						<div className="left">
+							<div className="img">
+								<img
+									src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
+									alt={data?.original_name}
+								/>
+							</div>
+						</div>
+						<div className="right">
+							<h3>{data?.original_name}</h3>
+							<span>{data?.first_air_date}</span>
+							<p>{data.overview.substring(0, width) + "..."}</p>
+							<div className="attr">
+								<span>{data?.media_type}</span>
+								<span>{data?.original_language}</span>
+							</div>
+							<div className="buttons">
+								<button
+									id="load-video-button"
+									onClick={() => (getVideoIdFromTMDB(data.id), setShow(true))}
+									className="trailer"
+								>
+									Trailer
+								</button>
+							</div>
 						</div>
 					</div>
-					<div className="right">
-						<h3>{data?.original_name}</h3>
-						<span>{data?.first_air_date}</span>
-						<p>{data.overview.substring(0, width) + "..."}</p>
-						<div className="attr">
-							<span>{data?.media_type}</span>
-							<span>{data?.original_language}</span>
-						</div>
-						<div className="buttons">
-							<button
-								id="load-video-button"
-								onClick={() => (getVideoIdFromTMDB(data.id), setShow(true))}
-								className="trailer"
-							>
-								Trailer
-							</button>
-						</div>
-					</div>
-				</div>
+				</Link>
 			</SwiperSlide>
 		);
 	});
