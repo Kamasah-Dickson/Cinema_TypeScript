@@ -1,7 +1,8 @@
-import React from "react";
+import { useParams } from "react-router-dom";
 
 function SingleMovie() {
-	return <div>SingleMovie</div>;
+	const { id }: any = useParams();
+	return <div>SingleMovie{id}</div>;
 }
 
 export default SingleMovie;
