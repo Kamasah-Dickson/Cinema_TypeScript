@@ -1,5 +1,6 @@
 import React from "react";
 import useFetch from "../useFetch";
+import useResize from "../useResize";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
@@ -11,6 +12,7 @@ import "swiper/css/navigation";
 function Upcoming() {
 	const url = "https://api.themoviedb.org/3";
 	const topRatedUrl = `${url}/movie/upcoming`;
+	const { width } = useResize(400);
 
 	const { pending, movies, error }: any = useFetch(topRatedUrl);
 
@@ -39,7 +41,7 @@ function Upcoming() {
 					<div className="right">
 						<h3>{data?.original_title}</h3>
 						<span>{data?.release_date}</span>
-						<p>{data.overview.substring(0, 200) + "..."}</p>
+						<p>{data.overview.substring(0, width) + "..."}</p>
 						<div className="attr">
 							<span>{data?.media_type}</span>
 							<span>{data?.original_language}</span>

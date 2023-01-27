@@ -1,5 +1,6 @@
 import React from "react";
 import useFetch from "../useFetch";
+import useResize from "../useResize";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
@@ -13,7 +14,7 @@ const nowPlaying = `${url}/movie/now_playing`;
 
 function ContinueWatching() {
 	const { movies, pending, error }: any = useFetch(nowPlaying);
-
+	const { width } = useResize(410);
 	const styles = {
 		fontSize: "30px",
 		marginLeft: "30px",
@@ -38,7 +39,7 @@ function ContinueWatching() {
 					<div className="right">
 						<h3>{data?.original_title}</h3>
 						<span>{data?.release_date}</span>
-						<p>{data.overview.substring(0, 200) + "..."}</p>
+						<p>{data.overview.substring(0, width) + "..."}</p>
 						<div className="attr">
 							<span>{data?.media_type}</span>
 							<span>{data?.original_language}</span>

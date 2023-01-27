@@ -10,6 +10,8 @@ import "swiper/css/navigation";
 import useFetch from "../useFetch";
 import PlayMovie from "./PlayMovie";
 
+import useResize from "../useResize";
+
 const url = "https://api.themoviedb.org/3";
 const trendingUrl = `${url}/trending/all/day`;
 const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
@@ -19,6 +21,8 @@ export default function Trending(): JSX.Element {
 	const [movieUrl, setMovieUrl] = useState<any>([]);
 	const [show, setShow] = useState<boolean>(false);
 	const [movieError, setMovieError] = useState<string>("");
+
+	const { width } = useResize(400);
 
 	async function getVideoIdFromTMDB(movieId: string) {
 		try {
@@ -76,7 +80,7 @@ export default function Trending(): JSX.Element {
 					<div className="right">
 						<h3>{data?.original_name}</h3>
 						<span>{data?.first_air_date}</span>
-						<p>{data.overview.substring(0, 200) + "..."}</p>
+						<p>{data.overview.substring(0, width) + "..."}</p>
 						<div className="attr">
 							<span>{data?.media_type}</span>
 							<span>{data?.original_language}</span>
