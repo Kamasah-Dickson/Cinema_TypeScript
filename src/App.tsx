@@ -25,10 +25,10 @@ const App: React.FC = () => {
 					<header className="header">
 						<Header />
 					</header>
+					<aside className="aside">
+						<Aside />
+					</aside>
 				</StateContext>
-				<aside className="aside">
-					<Aside />
-				</aside>
 				<Routes>
 					<Route
 						path="/"
