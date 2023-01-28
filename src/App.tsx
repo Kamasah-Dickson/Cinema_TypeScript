@@ -28,32 +28,32 @@ const App: React.FC = () => {
 					<aside className="aside">
 						<Aside />
 					</aside>
-				</StateContext>
-				<Routes>
-					<Route
-						path="/"
-						element={
-							<main className="main">
-								<Main>
-									<Trending />
-									<TopRated />
-									<Upcoming />
-									<ContinueWatching />
-								</Main>
-							</main>
-						}
-					></Route>
-					<Route path="/Discovery" element={<Discovery />} />
-					<Route path="/Community" element={<Community />} />
-					<Route path="/SearchMovies" element={<SearchMovie />} />
-					<Route path="/Settings" element={<Settings />} />
-					<Route path="/movie/:id" element={<SingleMovie />} />
-					<Route path="*" element={<PageNotFound />} />
-				</Routes>
+					<Routes>
+						<Route
+							path="/"
+							element={
+								<main className="main">
+									<Main>
+										<Trending />
+										<TopRated />
+										<Upcoming />
+										<ContinueWatching />
+									</Main>
+								</main>
+							}
+						></Route>
+						<Route path="/Discovery" element={<Discovery />} />
+						<Route path="/Community" element={<Community />} />
+						<Route path="/SearchMovies" element={<SearchMovie />} />
+						<Route path="/Settings" element={<Settings />} />
+						<Route path="/movie/:id" element={<SingleMovie />} />
+						<Route path="*" element={<PageNotFound />} />
+					</Routes>
 
-				<footer className="footer">
-					<Footer />
-				</footer>
+					<footer className="footer">
+						<Footer />
+					</footer>
+				</StateContext>
 			</div>
 		</Router>
 	);

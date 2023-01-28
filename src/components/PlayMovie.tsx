@@ -21,10 +21,7 @@ function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 	return (
 		<>
 			{show && (
-				<div
-					className="overlay"
-					onClick={() => setMovieError("")} 
-				>
+				<div className="overlay" onClick={() => setMovieError("")}>
 					{!movieError && (
 						<SlClose
 							onClick={() => (setShow(false), setMovieError(""))}
@@ -32,6 +29,7 @@ function PlayMovie({ show, setShow, movie, movieError, setMovieError }: any) {
 							size={40}
 							aria-label="close"
 							tabIndex={0}
+							color="white"
 						/>
 					)}
 					{movieError && (

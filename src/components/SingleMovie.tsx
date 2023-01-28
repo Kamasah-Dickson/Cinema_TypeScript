@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../useFetch";
-
+import SimilarMovies from "./SimilarMovies";
 function SingleMovie() {
 	const { id }: any = useParams();
 	const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
 	const singleMovie = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`;
-	const { pending, movies, error }: any = useFetch(singleMovie);
 
+	const { pending, movies, error }: any = useFetch(singleMovie);
 	const blue = "rgba(0, 0, 255, 0.5)";
 	const pink = "rgb(177, 10, 177,0.3)";
 
@@ -19,7 +19,6 @@ function SingleMovie() {
 
 	const paraStyle = {
 		fontSize: "30px",
-		"text-align": "center",
 		display: "grid",
 		alignItems: "center",
 		justifyContent: "center",
@@ -65,6 +64,7 @@ function SingleMovie() {
 					</div>
 				)}
 			</div>
+			<SimilarMovies id={id} />
 		</main>
 	);
 }

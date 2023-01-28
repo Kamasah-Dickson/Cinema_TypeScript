@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 
-// import StarRatings from "react-star-ratings";
 import useFetch from "../useFetch";
 import PlayMovie from "./PlayMovie";
 
@@ -89,12 +88,14 @@ export default function Trending(): JSX.Element {
 						</div>
 						<div className="buttons">
 							<button
-								id="load-video-button"
 								onClick={() => (getVideoIdFromTMDB(data.id), setShow(true))}
 								className="trailer"
 							>
 								Trailer
 							</button>
+							<Link to={`/movie/${data?.id}`}>
+								<button className="more">Learn More</button>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -112,34 +113,38 @@ export default function Trending(): JSX.Element {
 				setMovieError={setMovieError}
 			/>
 			<div className="trending-section">
-				<h2>Latest and trending🔥</h2>
-				{pending && (
+				{pending ? (
 					<p style={styles} className="loading">
 						Loading...
 					</p>
-				)}
-				{error && <p className="error">{error}</p>}
+				) : error ? (
+					<p className="error">{error}</p>
+				) : (
+					<>
+						<h2>Latest and trending🔥</h2>
 
-				<Swiper
-					slidesPerView={1}
-					centeredSlides={true}
-					autoplay={{
-						delay: 4000,
-						disableOnInteraction: false,
-					}}
-					breakpoints={{
-						1100: {
-							slidesPerView: 2,
-						},
-					}}
-					loop={true}
-					spaceBetween={25}
-					modules={[Navigation, A11y, Autoplay]}
-					navigation
-					className="swiper-container"
-				>
-					{result}
-				</Swiper>
+						<Swiper
+							slidesPerView={1}
+							centeredSlides={true}
+							autoplay={{
+								delay: 4000,
+								disableOnInteraction: false,
+							}}
+							breakpoints={{
+								1100: {
+									slidesPerView: 2,
+								},
+							}}
+							loop={true}
+							spaceBetween={25}
+							modules={[Navigation, A11y, Autoplay]}
+							navigation
+							className="swiper-container"
+						>
+							{result}
+						</Swiper>
+					</>
+				)}
 			</div>
 		</>
 	);
