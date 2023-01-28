@@ -1,24 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import useFetch from "../useFetch";
 import useResize from "../useResize";
+import PlayMovie from "./PlayMovie";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
-const url = "https://api.themoviedb.org/3";
-const nowPlaying = `${url}/movie/now_playing`;
-
 function ContinueWatching() {
+	const url = "https://api.themoviedb.org/3";
+	const API_KEY = "b7d4fc779ea5fc8fa713ece60b5a4033";
+	const nowPlaying = `${url}/movie/now_playing`;
+
 	const { movies, pending, error }: any = useFetch(nowPlaying);
 	const { width } = useResize(410);
+	const [show, setShow] = useState<boolean>(false);
+	const [movieError, setMovieError] = useState<string>("");
+	const [movieUrl, setMovieUrl] = useState<any>([]);
+
 	const styles = {
 		fontSize: "30px",
 		marginLeft: "30px",
 	};
+
+	async function getVideoIdFromTMDB(movieId: string) {
+		try {
+			const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
+			const response = await fetch(url, {
+				method: "GET",
+				mode: "cors",
+				headers: {
+					"Content-Type": "applicaton/json",
+					Authorization: `Bearer ${API_KEY}`,
+				},
+			});
+			if (!response.ok) {
+				if (response.status === 404) {
+					throw new Error("Movie not found.");
+				} else {
+					throw new Error("An error occurred while fetching the movie.");
+				}
+			} else {
+				const data = await response.json();
+
+				const movieLink = data?.results?.map(
+					(data: string[] | any) =>
+						`https://www.youtube.com/watch?v=${data.key}`
+				);
+				setMovieUrl(movieLink);
+			}
+		} catch (error: any) {
+			setMovieError(error?.message);
+			setShow(false);
+		}
+	}
 
 	const continueMovie = movies?.results?.map((data: any) => {
 		return (
@@ -47,7 +84,15 @@ function ContinueWatching() {
 							<span>{data?.original_language}</span>
 						</div>
 						<div className="buttons">
-							<button id="load-video-button" className="trailer">
+							<button
+								id="load-video-button"
+								className="trailer"
+								onClick={() => (
+									getVideoIdFromTMDB(data.id),
+									setShow(true),
+									console.log("hello")
+								)}
+							>
 								Trailer
 							</button>
 							<Link to={`/movie/${data?.id}`}>
@@ -63,40 +108,49 @@ function ContinueWatching() {
 	});
 
 	return (
-		<div className="continueWatching-section">
-			{pending ? (
-				<p style={styles} className="loading">
-					Loading...
-				</p>
-			) : error ? (
-				<p className="error">{error}</p>
-			) : (
-				<>
-					<h2>ContinueWatching🎁</h2>
+		<>
+			<PlayMovie
+				show={show}
+				setShow={setShow}
+				movie={movieUrl}
+				movieError={movieError}
+				setMovieError={setMovieError}
+			/>
+			<div className="continueWatching-section">
+				{pending ? (
+					<p style={styles} className="loading">
+						Loading...
+					</p>
+				) : error ? (
+					<p className="error">{error}</p>
+				) : (
+					<>
+						<h2>ContinueWatching🎁</h2>
 
-					<Swiper
-						className="card-container"
-						slidesPerView={1}
-						centeredSlides={true}
-						autoplay={{
-							delay: 5000,
-							disableOnInteraction: false,
-						}}
-						breakpoints={{
-							1100: {
-								slidesPerView: 2,
-							},
-						}}
-						loop={true}
-						spaceBetween={25}
-						modules={[Navigation, A11y, Autoplay]}
-						navigation
-					>
-						{continueMovie}
-					</Swiper>
-				</>
-			)}
-		</div>
+						<Swiper
+							className="card-container"
+							slidesPerView={1}
+							centeredSlides={true}
+							autoplay={{
+								delay: 5000,
+								disableOnInteraction: false,
+							}}
+							breakpoints={{
+								1100: {
+									slidesPerView: 2,
+								},
+							}}
+							loop={true}
+							spaceBetween={25}
+							modules={[Navigation, A11y, Autoplay]}
+							navigation
+						>
+							{continueMovie}
+						</Swiper>
+					</>
+				)}
+			</div>
+		</>
 	);
 }
 
