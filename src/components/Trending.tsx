@@ -68,8 +68,8 @@ export default function Trending(): JSX.Element {
 					src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
 					alt={data?.original_name}
 				/>
-				<Link to={`/movie/${data.id}`}>
-					<div className="onCard">
+				<div className="onCard">
+					<Link to={`/movie/${data.id}`}>
 						<div className="left">
 							<div className="img">
 								<img
@@ -78,26 +78,26 @@ export default function Trending(): JSX.Element {
 								/>
 							</div>
 						</div>
-						<div className="right">
-							<h3>{data?.original_name}</h3>
-							<span>{data?.first_air_date}</span>
-							<p>{data.overview.substring(0, width) + "..."}</p>
-							<div className="attr">
-								<span>{data?.media_type}</span>
-								<span>{data?.original_language}</span>
-							</div>
-							<div className="buttons">
-								<button
-									id="load-video-button"
-									onClick={() => (getVideoIdFromTMDB(data.id), setShow(true))}
-									className="trailer"
-								>
-									Trailer
-								</button>
-							</div>
+					</Link>
+					<div className="right">
+						<h3>{data?.original_name}</h3>
+						<span>{data?.first_air_date}</span>
+						<p>{data.overview.substring(0, width) + "..."}</p>
+						<div className="attr">
+							<span>{data?.media_type}</span>
+							<span>{data?.original_language}</span>
+						</div>
+						<div className="buttons">
+							<button
+								id="load-video-button"
+								onClick={() => (getVideoIdFromTMDB(data.id), setShow(true))}
+								className="trailer"
+							>
+								Trailer
+							</button>
 						</div>
 					</div>
-				</Link>
+				</div>
 			</SwiperSlide>
 		);
 	});
