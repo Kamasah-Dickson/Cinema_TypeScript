@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { HiMenuAlt3 } from "react-icons/hi";
@@ -10,13 +10,18 @@ import CustomizeIcons from "./CustomizeIcons";
 import Sidebar from "./Sidebar";
 
 function Header() {
-	const { setOpen, theme, setTheme } = useContext(contextProvider);
+	const { setOpen, theme, setTheme, searchMovie } = useContext(contextProvider);
 
 	useEffect(() => {
 		theme
 			? document.body.classList.add("lightMode")
 			: document.body.classList.remove("lightMode");
 	}, [theme]);
+
+	const searchStyle = {
+		transform: searchMovie ? "translateY(0)" : "translateY(-200px)",
+		transition: "transform .3s ease",
+	};
 
 	return (
 		<>
@@ -26,7 +31,7 @@ function Header() {
 					<NavLink to="/series">Series</NavLink>
 					<NavLink to="/show">Tv shows</NavLink>
 				</nav>
-				<div className="search">
+				<div className="search" style={searchStyle}>
 					<form className="wrapper">
 						<input type="text" />
 						<BiSearchAlt size={25} />
