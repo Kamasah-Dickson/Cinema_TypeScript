@@ -21,7 +21,7 @@ function SingleMovie() {
 
 	const introStyle = {
 		background: `${gradient},url(https://image.tmdb.org/t/p/original${movies?.backdrop_path}) center center / cover no-repeat`,
-		height: "500px",
+		height: "fit-content",
 	};
 
 	const paraStyle = {

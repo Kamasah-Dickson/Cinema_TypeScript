@@ -15,7 +15,7 @@ function ContinueWatching() {
 	const nowPlaying = `${url}/movie/now_playing`;
 
 	const { movies, pending, error }: any = useFetch(nowPlaying);
-	const { width } = useResize(410);
+	const { width } = useResize(400);
 	const [show, setShow] = useState<boolean>(false);
 	const [movieError, setMovieError] = useState<string>("");
 	const [movieUrl, setMovieUrl] = useState<any>([]);

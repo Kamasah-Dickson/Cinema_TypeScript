@@ -681,7 +681,7 @@ body {
 					justify-content: flex-start;
 					gap: f.rem(20);
 					width: 100%;
-					@include breakpoint-max(small) {
+					@include breakpoint-max(v-small) {
 						flex-direction: column;
 						gap: f.rem(10);
 						align-items: flex-start;
@@ -844,7 +844,7 @@ body {
 					gap: f.rem(20);
 					width: 100%;
 
-					@include breakpoint-max(small) {
+					@include breakpoint-max(v-small) {
 						flex-direction: column;
 						gap: f.rem(10);
 						align-items: flex-start;
@@ -1106,8 +1106,7 @@ body {
 
 		.container2 {
 			display: grid;
-			// grid-template-columns: f.rem(300) auto;
-			padding-block: f.rem(15);
+			padding-block: f.rem(30);
 			grid-template-columns: repeat(auto-fit, minmax(f.rem(250), 1fr));
 
 			gap: f.rem(30);
@@ -1172,28 +1171,64 @@ body {
 // ===========similarMovies============
 .similarMovies-section {
 	margin-top: f.rem(50);
-	h2 {
-		margin-bottom: f.rem(30);
-		color: var(--white);
-		font-weight: 400;
-		font-size: $font-larger;
-		text-align: left;
-		@include breakpoint-max(v-small) {
-			font-size: $font-large;
-		}
-	}
+
 	.container3 {
 		width: min(100% - f.rem(20), f.rem(1200));
 		margin-inline: auto;
+		h2 {
+			margin-bottom: f.rem(30);
+			color: var(--white);
+			font-weight: 400;
+			font-size: $font-larger;
+			text-align: left;
+			@include breakpoint-max(v-small) {
+				font-size: $font-large;
+			}
+		}
 		.parent-container {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(f.rem(200), 1fr));
-			gap: f.rem(15);
-			.movieCard {
-				.img {
+			grid-template-columns: repeat(auto-fit, minmax(f.rem(250), 1fr));
+			gap: f.rem(20);
+			a {
+				text-decoration: none;
+				.movieCard {
+					transition: 0.3s ease;
+					box-shadow: -1rem 1rem 1rem -1rem rgba(0, 0, 0, 0.2);
+					color: var(--white);
+					border: 1px solid var(--white2);
+					height: 100%;
+					max-width: f.rem(450);
+					margin-inline: auto;
 					width: 100%;
-					img {
+					&:hover {
+						box-shadow: -1rem 1rem 1rem -1rem rgba(0, 0, 0, 0.3);
+						transform: scale(1.01);
+					}
+					.img {
 						width: 100%;
+						height: f.rem(350);
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+						}
+					}
+					.content {
+						padding: f.rem(15) f.rem(10);
+						h3 {
+							margin-bottom: f.rem(10);
+							font-weight: 600;
+						}
+						span {
+							display: block;
+							width: 100%;
+							padding-block: f.rem(2);
+							color: var(--dark-brown);
+						}
+						.rate {
+							display: flex;
+							align-items: center;
+						}
 					}
 				}
 			}
