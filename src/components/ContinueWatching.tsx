@@ -48,8 +48,13 @@ function ContinueWatching() {
 						</div>
 						<div className="buttons">
 							<button id="load-video-button" className="trailer">
-								Learn More
+								Trailer
 							</button>
+							<Link to={`/movie/${data?.id}`}>
+								<button id="load-video-button" className="more">
+									Learn More
+								</button>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -59,34 +64,38 @@ function ContinueWatching() {
 
 	return (
 		<div className="continueWatching-section">
-			<h2>ContinueWatching🎁</h2>
-			{pending && (
+			{pending ? (
 				<p style={styles} className="loading">
 					Loading...
 				</p>
-			)}
-			{error && <p className="error">{error}</p>}
+			) : error ? (
+				<p className="error">{error}</p>
+			) : (
+				<>
+					<h2>ContinueWatching🎁</h2>
 
-			<Swiper
-				className="card-container"
-				slidesPerView={1}
-				centeredSlides={true}
-				autoplay={{
-					delay: 5000,
-					disableOnInteraction: false,
-				}}
-				breakpoints={{
-					1100: {
-						slidesPerView: 2,
-					},
-				}}
-				loop={true}
-				spaceBetween={25}
-				modules={[Navigation, A11y, Autoplay]}
-				navigation
-			>
-				{continueMovie}
-			</Swiper>
+					<Swiper
+						className="card-container"
+						slidesPerView={1}
+						centeredSlides={true}
+						autoplay={{
+							delay: 5000,
+							disableOnInteraction: false,
+						}}
+						breakpoints={{
+							1100: {
+								slidesPerView: 2,
+							},
+						}}
+						loop={true}
+						spaceBetween={25}
+						modules={[Navigation, A11y, Autoplay]}
+						navigation
+					>
+						{continueMovie}
+					</Swiper>
+				</>
+			)}
 		</div>
 	);
 }
