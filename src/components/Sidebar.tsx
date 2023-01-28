@@ -40,34 +40,34 @@ function Sidebar() {
 				<div className="nav_links">
 					<h2>Menu</h2>
 					<nav className="first-nav">
-						<NavLink to="/">
+						<NavLink to="/" onClick={() => setOpen(false)}>
 							<CustomizeIcons>
 								<BiHomeCircle size="20" />
 							</CustomizeIcons>
 							<p>Home</p>
 						</NavLink>
 
-						<NavLink to="/discovery">
+						<NavLink to="/discovery" onClick={() => setOpen(false)}>
 							<CustomizeIcons>
 								<FaRegCompass size="20" />
 							</CustomizeIcons>
 							<p>Discovery</p>
 						</NavLink>
 
-						<NavLink to="/community">
+						<NavLink to="/community" onClick={() => setOpen(false)}>
 							<CustomizeIcons>
 								<IoIosPeople size="20" />
 							</CustomizeIcons>
 							<p>Community</p>
 						</NavLink>
-						<NavLink to="/notification">
+						<NavLink to="/notification" onClick={() => setOpen(false)}>
 							<CustomizeIcons>
 								<IoMdNotificationsOutline size="20" />
 							</CustomizeIcons>
 							<p>Notifications</p>
 						</NavLink>
 
-						<NavLink to="/searchmovies">
+						<NavLink to="/searchmovies" onClick={() => setOpen(false)}>
 							<CustomizeIcons>
 								<BiSearch size="20" />
 							</CustomizeIcons>
@@ -75,21 +75,21 @@ function Sidebar() {
 						</NavLink>
 					</nav>
 					<nav>
-						<NavLink to="/settings">
+						<NavLink to="/settings" onClick={() => setOpen(false)}>
 							<CustomizeIcons>
 								<MdOutlineSettingsSuggest size="20" />
 							</CustomizeIcons>
 							<p>Settings</p>
 						</NavLink>
 
-						<NavLink to="/help">
+						<NavLink to="/help" onClick={() => setOpen(false)}>
 							<CustomizeIcons>
 								<AiOutlineCloud size="20" />
 							</CustomizeIcons>
 							<p>Help</p>
 						</NavLink>
 
-						<NavLink to="/exit">
+						<NavLink to="/exit" onClick={() => setOpen(false)}>
 							<CustomizeIcons>
 								<BiExit size="20" />
 							</CustomizeIcons>
