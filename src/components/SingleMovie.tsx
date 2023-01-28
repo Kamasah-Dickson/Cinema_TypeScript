@@ -7,10 +7,10 @@ function SingleMovie() {
 	const singleMovie = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`;
 	const { pending, movies, error }: any = useFetch(singleMovie);
 
-	const blue = "rgba(0, 0, 255, 0.163)";
-	const pink = "rgb(177, 10, 177,0.7)";
+	const blue = "rgba(0, 0, 255, 0.5)";
+	const pink = "rgb(177, 10, 177,0.3)";
 
-	let gradient = `linear-gradient(to top,${pink}, ${blue})`;
+	let gradient = `linear-gradient(to top,${blue}, ${pink})`;
 
 	const introStyle = {
 		background: `${gradient},url(https://image.tmdb.org/t/p/original${movies?.backdrop_path}) center center / cover no-repeat`,

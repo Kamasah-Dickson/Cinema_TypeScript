@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import useFetch from "../useFetch";
 import { ratedMovies } from "../interface";
 import { contextProvider } from "../context/StateContext";
+import { Link } from "react-router-dom";
 
 function TopRated() {
 	const url = "https://api.themoviedb.org/3";
@@ -39,13 +40,15 @@ function TopRated() {
 					{error && <p className="error">{error}</p>}
 					{movies?.results?.slice(0, load).map((movies: ratedMovies) => {
 						return (
-							<div key={movies.id} className="movie" tabIndex={0}>
-								<img
-									src={`https://image.tmdb.org/t/p/original${movies?.poster_path}`}
-									alt={movies?.original_title}
-								/>
-								<p>{movies?.original_title}</p>
-							</div>
+							<Link to={`/movie/${movies?.id}`} key={movies.id}>
+								<div className="movie" tabIndex={0}>
+									<img
+										src={`https://image.tmdb.org/t/p/original${movies?.poster_path}`}
+										alt={movies?.original_title}
+									/>
+									<p>{movies?.original_title}</p>
+								</div>
+							</Link>
 						);
 					})}
 				</div>

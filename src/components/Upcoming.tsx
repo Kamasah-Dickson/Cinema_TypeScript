@@ -1,7 +1,7 @@
 import React from "react";
 import useFetch from "../useFetch";
 import useResize from "../useResize";
-
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper";
 
@@ -30,14 +30,16 @@ function Upcoming() {
 				/>
 
 				<div className="onCard">
-					<div className="left">
-						<div className="img">
-							<img
-								src={`https://image.tmdb.org/t/p/original${data?.poster_path}`}
-								alt={data?.original_title}
-							/>
+					<Link to={`/movie/${data?.id}`}>
+						<div className="left">
+							<div className="img">
+								<img
+									src={`https://image.tmdb.org/t/p/original${data?.poster_path}`}
+									alt={data?.original_title}
+								/>
+							</div>
 						</div>
-					</div>
+					</Link>
 					<div className="right">
 						<h3>{data?.original_title}</h3>
 						<span>{data?.release_date}</span>
