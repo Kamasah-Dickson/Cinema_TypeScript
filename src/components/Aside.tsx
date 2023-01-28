@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { BiHomeCircle, BiSearch } from "react-icons/bi";
 import CustomizeIcons from "./CustomizeIcons";
 import { FaRegCompass } from "react-icons/fa";
@@ -8,8 +8,20 @@ import { AiOutlineCloud } from "react-icons/ai";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import { BiExit } from "react-icons/bi";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
+import { contextProvider } from "../context/StateContext";
 
 const Aside: React.FC = () => {
+	const { setSearch, searchMovie } = useContext(contextProvider);
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location.pathname === "/searchmovies") {
+			setSearch(true);
+		} else {
+			setSearch(false);
+		}
+	}, [location.pathname]);
+
 	return (
 		<div className="container">
 			<div className="logo">
