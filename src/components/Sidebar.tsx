@@ -11,10 +11,22 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
 import { BiExit } from "react-icons/bi";
 import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
-import StateContext, { contextProvider } from "../context/StateContext";
+import { contextProvider } from "../context/StateContext";
+import { useLocation } from "react-router-dom";
 
 function Sidebar() {
 	const { open, setOpen, theme } = useContext(contextProvider);
+	const { setSearch, searchMovie } = useContext(contextProvider);
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location.pathname === "/searchmovies") {
+			setSearch(true);
+		} else {
+			setSearch(false);
+		}
+	}, [location.pathname]);
+
 	return (
 		<div className={`sidebar ${open && "show"}`}>
 			<div className="container">
@@ -55,7 +67,7 @@ function Sidebar() {
 							<p>Notifications</p>
 						</NavLink>
 
-						<NavLink to="/search">
+						<NavLink to="/searchmovies">
 							<CustomizeIcons>
 								<BiSearch size="20" />
 							</CustomizeIcons>

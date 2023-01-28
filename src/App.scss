@@ -166,11 +166,13 @@ body {
 					gap: f.rem(10);
 					background: var(--dark-brown2);
 					border-radius: f.rem(30);
-					width: 400px;
+					max-width: 400px;
+					width: 100%;
 					padding: f.rem(15) f.rem(18);
 					box-shadow: 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.3);
 					input {
-						width: f.rem(350);
+						max-width: f.rem(350);
+						width: 100%;
 						height: f.rem(40);
 						border-radius: f.rem(20);
 						padding: 0 f.rem(10);
