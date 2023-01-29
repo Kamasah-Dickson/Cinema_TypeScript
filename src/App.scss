@@ -209,6 +209,8 @@ body {
 				}
 
 				&:hover {
+					transform: scale(1.1);
+
 					svg {
 						fill: rgba(180, 33, 180, 0.774);
 						transition: 0.3s ease;
@@ -224,15 +226,24 @@ body {
 					text-decoration: none;
 					color: var(--white);
 					&:hover {
-						color: var(--light-blue);
 						transition: 0.3s ease;
+						color: var(--light-blue);
+						transform: scale(1.05);
 					}
+				}
+				.active {
+					transform: scale(1.1);
+					color: var(--light-blue);
 				}
 			}
 			.group-icons {
 				display: flex;
 				align-items: center;
 				gap: f.rem(15);
+				transition: 0.3s ease;
+				svg:hover {
+					transform: scale(1.1);
+				}
 			}
 		}
 	}
@@ -263,6 +274,12 @@ body {
 				h1 {
 					font-weight: 600;
 					color: var(--white3);
+				}
+				h2 {
+					transition: 0.3s ease;
+					&:hover {
+						transform: scale(1.2);
+					}
 				}
 			}
 			.nav_links {
@@ -305,15 +322,20 @@ body {
 						text-decoration: none;
 						cursor: pointer;
 						font-weight: 500;
+						transition: 0.3s ease;
+
 						&.active {
 							border-left: f.rem(2) solid var(--light-blue);
+							transform: scale(1.04);
+							color: var(--white3);
 						}
 						svg {
 							margin-left: f.rem(10);
 						}
 						&:hover {
 							color: var(--white3);
-							transition: 0.3s ease;
+							transform: scale(1.04);
+
 							svg {
 								fill: var(--loading);
 							}
