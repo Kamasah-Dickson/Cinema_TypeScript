@@ -430,19 +430,24 @@ body {
 				flex-direction: column;
 				justify-content: center;
 				align-items: flex-end;
-				flex: 1 0 40%;
+				flex: 1 0 auto;
 				gap: f.rem(10);
 				a {
 					text-decoration: none;
 					color: var(--white);
 					font-weight: 600;
 					font-size: f.rem(20);
+					transition: 0.3s ease;
+					&:hover {
+						transform: scale(1.1);
+						color: var(--scrollbar);
+					}
 				}
 			}
 			.right {
 				display: flex;
 				flex-direction: column;
-				flex: 1 0 40%;
+				flex: 1 0 auto;
 
 				.icons {
 					margin-bottom: f.rem(20);
@@ -459,6 +464,7 @@ body {
 						transition: 0.3s;
 						&:hover {
 							fill: var(--scrollbar);
+							transform: scale(1.1);
 						}
 					}
 				}
@@ -487,7 +493,7 @@ body {
 					}
 				}
 			}
-			@include breakpoint-max(v-small) {
+			@include breakpoint-max(small-m) {
 				flex-wrap: wrap;
 				.left {
 					align-items: center;
