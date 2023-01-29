@@ -419,46 +419,86 @@ body {
 
 		.container {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
+			justify-content: center;
+			gap: f.rem(50);
 			padding: f.rem(20) 0;
 			text-align: center;
-			.icons {
-				margin-bottom: f.rem(20);
+			margin-inline: auto;
+
+			.left {
 				display: flex;
-				gap: f.rem(20);
-				cursor: pointer;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-end;
+				flex: 1 0 40%;
+				gap: f.rem(10);
 				a {
 					text-decoration: none;
-					color: transparent;
+					color: var(--white);
+					font-weight: 600;
+					font-size: f.rem(20);
 				}
-				svg {
-					fill: var(--white);
-					transition: 0.3s;
+			}
+			.right {
+				display: flex;
+				flex-direction: column;
+				flex: 1 0 40%;
+
+				.icons {
+					margin-bottom: f.rem(20);
+					margin-right: auto;
+					display: flex;
+					gap: f.rem(20);
+					cursor: pointer;
+					a {
+						text-decoration: none;
+						color: transparent;
+					}
+					svg {
+						fill: var(--white);
+						transition: 0.3s;
+						&:hover {
+							fill: var(--scrollbar);
+						}
+					}
+				}
+				p {
+					font-size: f.rem(20);
+					color: var(--white);
+					margin-right: auto;
+					text-align: left;
+				}
+				.img {
+					margin-top: f.rem(20);
+					width: f.rem(60);
+					height: f.rem(60);
+					margin-right: auto;
+					cursor: pointer;
+					border-radius: 100%;
+					border: 3px solid transparent;
+					transition: border 0.3s ease;
 					&:hover {
-						fill: var(--scrollbar);
+						border-color: var(--scrollbar);
+					}
+					img {
+						border-radius: 100%;
+						width: 100%;
+						height: 100%;
 					}
 				}
 			}
-			p {
-				font-size: f.rem(20);
-				color: var(--white);
-			}
-			.img {
-				margin-top: f.rem(20);
-				width: f.rem(60);
-				height: f.rem(60);
-				cursor: pointer;
-				border-radius: 100%;
-				border: 3px solid transparent;
-				transition: border 0.3s ease;
-				&:hover {
-					border-color: var(--scrollbar);
+			@include breakpoint-max(v-small) {
+				flex-wrap: wrap;
+				.left {
+					align-items: center;
 				}
-				img {
-					border-radius: 100%;
-					width: 100%;
-					height: 100%;
+				.right {
+					.icons,
+					.img,
+					p {
+						margin-inline: auto;
+						text-align: center;
+					}
 				}
 			}
 		}
