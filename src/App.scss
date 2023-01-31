@@ -1390,3 +1390,10 @@ body {
 		}
 	}
 }
+
+.similarMovies-section {
+	display: grid;
+	@include breakpoint-max(medium) {
+		grid-column: 1/-1;
+	}
+}
