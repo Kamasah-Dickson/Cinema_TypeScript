@@ -45,18 +45,17 @@ const Aside: React.FC = () => {
 						<p>Discovery</p>
 					</NavLink>
 
-					<NavLink to="/community">
-						<CustomizeIcons>
-							<IoIosPeople size="20" />
-						</CustomizeIcons>
-						<p>Community</p>
-					</NavLink>
-
 					<NavLink to="/searchmovies">
 						<CustomizeIcons>
 							<BiSearch size="20" />
 						</CustomizeIcons>
 						<p>Search</p>
+					</NavLink>
+					<NavLink to="/community">
+						<CustomizeIcons>
+							<IoIosPeople size="20" />
+						</CustomizeIcons>
+						<p>Community</p>
 					</NavLink>
 				</nav>
 				<nav>

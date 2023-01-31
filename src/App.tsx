@@ -16,6 +16,7 @@ import Settings from "./components/Settings";
 import SingleMovie from "./components/SingleMovie";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Upcoming from "./components/Upcoming";
+import UnderConstruction from "./components/UnderConstruction";
 
 const App: React.FC = () => {
 	return (
@@ -45,7 +46,11 @@ const App: React.FC = () => {
 						<Route path="/Discovery" element={<Discovery />} />
 						<Route path="/Community" element={<Community />} />
 						<Route path="/SearchMovies" element={<SearchMovie />} />
-						<Route path="/Settings" element={<Settings />} />
+						<Route path="/Settings" element={<UnderConstruction />} />
+						<Route path="/help" element={<UnderConstruction />} />
+						<Route path="/Exit" element={<UnderConstruction />} />
+						<Route path="/show" element={<UnderConstruction />} />
+						<Route path="/series" element={<UnderConstruction />} />
 						<Route path="/movie/:id" element={<SingleMovie />} />
 						<Route path="*" element={<PageNotFound />} />
 					</Routes>
