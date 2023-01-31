@@ -1,10 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { contextProvider } from "../context/StateContext";
-import { BiSearchAlt } from "react-icons/bi";
 
 import CustomizeIcons from "./CustomizeIcons";
 import Sidebar from "./Sidebar";
@@ -23,6 +22,7 @@ function Header() {
 		transform: searchMovie ? "translateY(0)" : "translateY(-200px)",
 		transition: "transform .3s ease",
 	};
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
 		if (e.target.value.length >= 3) {
@@ -35,18 +35,6 @@ function Header() {
 
 	function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
-		const input = e.currentTarget.querySelector(
-			'input[type="text"]'
-		) as HTMLInputElement;
-
-		if (input) {
-			const inputValue = input.value;
-			handleSearch({
-				target: {
-					value: inputValue,
-				},
-			} as React.ChangeEvent<HTMLInputElement>);
-		}
 	}
 
 	return (
@@ -60,11 +48,12 @@ function Header() {
 				<div className="search" style={searchStyle}>
 					<form className="wrapper" onSubmit={(e) => handleFormSubmit(e)}>
 						<input
+							ref={inputRef}
 							type="text"
 							name="search"
 							onChange={(e) => handleSearch(e)}
+							placeholder="Search for a movie..."
 						/>
-						<BiSearchAlt size={25} />
 					</form>
 				</div>
 				<div className="group-icons">
@@ -86,7 +75,7 @@ function Header() {
 				</div>
 			</div>
 			<div className="menu">
-				<Sidebar />
+				<Sidebar focus={inputRef} />
 			</div>
 		</>
 	);
