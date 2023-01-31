@@ -12,20 +12,25 @@ export interface toggleInterface {
 	open: boolean;
 	theme: boolean;
 	searchMovie: boolean;
+	search: string;
+	setMovieSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const contextProvider = createContext<toggleInterface>({
 	setOpen: () => {},
 	setTheme: () => {},
 	setSearch: () => {},
+	setMovieSearch: () => {},
 	open: false,
 	theme: true,
 	searchMovie: false,
+	search: "",
 });
 
 function StateContext({ children }: PropsWithChildren) {
 	const [open, setOpen] = useState<boolean>(false);
 	const [searchMovie, setSearch] = useState<boolean>(false);
+	const [search, setMovieSearch] = useState("");
 
 	const [theme, setTheme] = useState<boolean>(
 		JSON.parse(localStorage.getItem("theme") || (true as any))
@@ -37,7 +42,16 @@ function StateContext({ children }: PropsWithChildren) {
 
 	return (
 		<contextProvider.Provider
-			value={{ open, setOpen, theme, setTheme, searchMovie, setSearch }}
+			value={{
+				open,
+				setOpen,
+				theme,
+				setTheme,
+				searchMovie,
+				setSearch,
+				search,
+				setMovieSearch,
+			}}
 		>
 			{children}
 		</contextProvider.Provider>
