@@ -43,16 +43,20 @@ const SearchMovie = () => {
 		<div className="similarMovies-section">
 			{!search ? (
 				<p style={combine} className="loading">
-					Search your favorite movie🌎
+					Search for your favorite movie🌎
 				</p>
 			) : pending ? (
 				<p style={paraStyle} className="loading">
 					Loading...
 				</p>
 			) : error ? (
-				<p className="error">Network Error</p>
+				<p className="error" style={{ marginTop: "25px" }}>
+					Network Error
+				</p>
 			) : !movies?.results?.length ? (
-				<p className="error">Could not find Movie</p>
+				<p className="error" style={{ marginTop: "25px" }}>
+					Could not find Movie
+				</p>
 			) : (
 				<>
 					<div className="container3" style={{ marginTop: "30px" }}>
