@@ -14,7 +14,7 @@ import Logo from "../assets/img/EgLF6Jmi_4x.jpg";
 import { contextProvider } from "../context/StateContext";
 import { useLocation } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({ focus }: any) {
 	const { open, setOpen, theme } = useContext(contextProvider);
 	const { setSearch, searchMovie } = useContext(contextProvider);
 	const location = useLocation();
@@ -22,6 +22,7 @@ function Sidebar() {
 	useEffect(() => {
 		if (location.pathname === "/searchmovies") {
 			setSearch(true);
+			focus.current.focus();
 		} else {
 			setSearch(false);
 		}
