@@ -38,18 +38,17 @@ const Aside: React.FC = () => {
 						<p>Home</p>
 					</NavLink>
 
-					<NavLink to="/discovery">
-						<CustomizeIcons>
-							<FaRegCompass size="20" />
-						</CustomizeIcons>
-						<p>Discovery</p>
-					</NavLink>
-
 					<NavLink to="/searchmovies">
 						<CustomizeIcons>
 							<BiSearch size="20" />
 						</CustomizeIcons>
 						<p>Search</p>
+					</NavLink>
+					<NavLink to="/discovery">
+						<CustomizeIcons>
+							<FaRegCompass size="20" />
+						</CustomizeIcons>
+						<p>Discovery</p>
 					</NavLink>
 					<NavLink to="/community">
 						<CustomizeIcons>

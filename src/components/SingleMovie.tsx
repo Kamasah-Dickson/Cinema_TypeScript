@@ -73,16 +73,16 @@ function SingleMovie() {
 				setMovieError={setMovieError}
 			/>
 			<main className="singleMovie-section">
-				<div className="intro-section" style={introStyle}>
-					{pending ? (
-						<p style={paraStyle} className="loading">
-							Loading...
-						</p>
-					) : error ? (
-						<p className="error" style={paraStyle}>
-							{error}
-						</p>
-					) : (
+				{pending ? (
+					<p style={paraStyle} className="loading">
+						Loading...
+					</p>
+				) : error ? (
+					<p className="error" style={paraStyle}>
+						{error}
+					</p>
+				) : (
+					<div className="intro-section" style={introStyle}>
 						<div className="container2">
 							<div className="left-card">
 								<img
@@ -111,8 +111,8 @@ function SingleMovie() {
 								</div>
 							</div>
 						</div>
-					)}
-				</div>
+					</div>
+				)}
 				<SimilarMovies id={id} />
 			</main>
 		</>

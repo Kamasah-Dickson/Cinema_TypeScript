@@ -22,7 +22,14 @@ const SearchMovie = () => {
 		cursor: "pointer",
 	};
 
-	// if (!search) return;
+	const center = {
+		marginTop: "35px",
+	};
+
+	const combine = {
+		...center,
+		...paraStyle,
+	};
 
 	const SimilarMovie = `${url}/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=1&include_adult=false`;
 	const { pending, movies, error }: any = useFetch(SimilarMovie);
@@ -35,7 +42,7 @@ const SearchMovie = () => {
 	return (
 		<div className="similarMovies-section">
 			{!search ? (
-				<p style={paraStyle} className="loading">
+				<p style={combine} className="loading">
 					Search your favorite movie🌎
 				</p>
 			) : pending ? (
