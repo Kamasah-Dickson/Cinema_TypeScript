@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { HiMenuAlt3 } from "react-icons/hi";
@@ -10,7 +10,8 @@ import CustomizeIcons from "./CustomizeIcons";
 import Sidebar from "./Sidebar";
 
 function Header() {
-	const { setOpen, theme, setTheme, searchMovie } = useContext(contextProvider);
+	const { setOpen, theme, setTheme, searchMovie, setMovieSearch } =
+		useContext(contextProvider);
 
 	useEffect(() => {
 		theme
@@ -23,6 +24,31 @@ function Header() {
 		transition: "transform .3s ease",
 	};
 
+	function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
+		if (e.target.value.length >= 3) {
+			setMovieSearch(e.target.value.trim());
+		} else {
+			setMovieSearch("");
+			return;
+		}
+	}
+
+	function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+		e.preventDefault();
+		const input = e.currentTarget.querySelector(
+			'input[type="text"]'
+		) as HTMLInputElement;
+
+		if (input) {
+			const inputValue = input.value;
+			handleSearch({
+				target: {
+					value: inputValue,
+				},
+			} as React.ChangeEvent<HTMLInputElement>);
+		}
+	}
+
 	return (
 		<>
 			<div className="container">
@@ -32,8 +58,12 @@ function Header() {
 					<NavLink to="/show">Tv shows</NavLink>
 				</nav>
 				<div className="search" style={searchStyle}>
-					<form className="wrapper">
-						<input type="text" />
+					<form className="wrapper" onSubmit={(e) => handleFormSubmit(e)}>
+						<input
+							type="text"
+							name="search"
+							onChange={(e) => handleSearch(e)}
+						/>
 						<BiSearchAlt size={25} />
 					</form>
 				</div>
