@@ -8,11 +8,11 @@ import ContinueWatching from "./components/ContinueWatching";
 import Aside from "./components/Aside";
 import Main from "./components/Main";
 import StateContext from "./context/StateContext";
-import Discovery from "./components/Discovery";
+// import Discovery from "./components/Discovery";
 import PageNotFound from "./components/PageNotFound";
-import Community from "./components/Community";
+// import Community from "./components/Community";
 import SearchMovie from "./components/SearchMovie";
-import Settings from "./components/Settings";
+// import Settings from "./components/Settings";
 import SingleMovie from "./components/SingleMovie";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Upcoming from "./components/Upcoming";
@@ -43,8 +43,8 @@ const App: React.FC = () => {
 								</main>
 							}
 						></Route>
-						<Route path="/Discovery" element={<Discovery />} />
-						<Route path="/Community" element={<Community />} />
+						<Route path="/Discovery" element={<UnderConstruction />} />
+						<Route path="/Community" element={<UnderConstruction />} />
 						<Route path="/SearchMovies" element={<SearchMovie />} />
 						<Route path="/Settings" element={<UnderConstruction />} />
 						<Route path="/help" element={<UnderConstruction />} />
