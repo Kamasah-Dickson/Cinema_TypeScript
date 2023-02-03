@@ -1,5 +1,5 @@
 # Cinema_TypeScript
-Movie collections site made with React + TypeScript
+Movie collection web app made with React + TypeScript
 - Live-site: https://super-dasik-539156.netlify.app/
 - Dark theme
 ![super-dasik-539156 netlify app_ (2)](https://user-images.githubusercontent.com/86136379/215076633-7b308e4c-15a6-4782-ab0e-5c17d748b6d9.png)
